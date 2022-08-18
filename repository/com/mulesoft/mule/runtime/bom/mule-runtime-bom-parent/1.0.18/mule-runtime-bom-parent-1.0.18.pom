@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mulesoft.mule.runtime.bom</groupId>
+    <artifactId>mule-runtime-bom-parent</artifactId>
+    <version>1.0.18</version>
+    <packaging>pom</packaging>
+
+    <name>Mule Runtime Dependencies parent BOM</name>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+        <maven.versions.plugin>2.8.1</maven.versions.plugin>
+    </properties>
+    
+    <modules>
+        <module>artifact-patches</module>
+        <module>dependencies</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>updateReleaseVersions</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>${maven.versions.plugin}</version>
+                        <configuration>
+                            <rulesUri>file://${session.executionRootDirectory}/maven-release-version-rules.xml</rulesUri>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>updateSnapshotVersions</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>${maven.versions.plugin}</version>
+                        <configuration>
+                            <rulesUri>file://${session.executionRootDirectory}/maven-snapshot-version-rules.xml</rulesUri>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <repository>
+            <id>mule-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
+

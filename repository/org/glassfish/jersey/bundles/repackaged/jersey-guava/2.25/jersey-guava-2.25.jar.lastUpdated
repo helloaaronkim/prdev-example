@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:45:38 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524338269
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524320588
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.glassfish.jersey.bundles.repackaged\:jersey-guava\:jar\:2.25 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.25/jersey-guava-2.25.jar. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524313995

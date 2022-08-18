@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracing="http://www.mulesoft.org/schema/mule/tracing" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/tracing http://www.mulesoft.org/schema/mule/tracing/current/mule-tracing.xsd">
+  <flow name="get-boarding-pass" doc:id="45c27f19-2c3e-49e6-8182-beea4b74f586" >
+    <ee:transform doc:name="Transform Message" doc:id="9ca9e568-74d5-4432-8ce7-6a75e9848e02">
+      <ee:message>
+        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  flight: "ANY6584",
+  lastName: "Smith",
+  gate: "4A",
+  PNR: "928382J",
+  flightDate: "2019-02-14",
+  boarding: "13:15:00",
+  seat: "16C",
+  depart: "14:30:00",
+  class: "Economy",
+  airportArrive: "SFO",
+  airportDepart: "ATL",
+  bagsCount: 2
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+  </flow>
+  <flow name="update-approvals" doc:id="e0ccd3be-531c-4ba0-ba4d-52eb5309aba4" >
+    <ee:transform doc:name="Transform Message" doc:id="10f9d459-3751-4757-a72c-73b8e6211dad">
+      <ee:message>
+        <ee:set-payload><![CDATA[%dw 2.0
+output application/java
+---
+{
+	status: "Payment executed"
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+  </flow>
+  <flow name="payment-approval-by-pnr" doc:id="92e65264-f3ec-4a85-8c11-d91829db7269" >
+    <flow-ref doc:name="update-approvals" doc:id="c5ef75d1-d9ee-482f-8012-35dea735746b" name="update-approvals" />
+    <flow-ref doc:name="get-boarding-pass" doc:id="5c74bdee-9232-4347-90c7-3e6a0bd438f9" name="get-boarding-pass" />
+  </flow>
+  <flow name="create-payment-for-bags" doc:id="be8b3c2c-f5f3-4d02-b0ac-6257ac3d6171" >
+    <logger level="INFO" doc:name="Logger" doc:id="bb6773ec-8026-4084-bee5-dff584b0b85c" />
+    <error-handler >
+      <on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="8a3da809-e588-4a26-85bb-9fb58d3e78fc" >
+        <raise-error doc:name="Raise error" doc:id="b82e1c90-36f2-4760-b602-11b7cee08279" type="APP:CANT_CREATE_PAYMENT"/>
+      </on-error-continue>
+    </error-handler>
+  </flow>
+  <flow name="register-passenger-data" doc:id="dc5e1c9d-21c5-4c6d-875a-c01054887a08" >
+    <logger level="INFO" doc:name="Logger" doc:id="92ec905e-6dce-48cb-92bf-89ef93a40d80" />
+  </flow>
+  <flow name="check-in-flights-management" doc:id="c2c1d605-a101-40be-96e2-72941b60dd71" >
+    <logger level="INFO" doc:name="Logger" doc:id="40728a6f-a25b-4b9a-8876-873d4ba59934" />
+  </flow>
+  <flow name="check-in-by-pnr" doc:id="4846de1e-56d3-4691-9c18-245da68085a1" >
+    <set-variable value="#[payload]" doc:name="Set Variable" doc:id="e2de1385-c143-41ca-911d-475dbfd84ad2" variableName="checkIn"/>
+    <tracing:set-logging-variable doc:name="Set logging variable" doc:id="93b1d235-5148-4dc6-8dc4-d4fc0670a746" variableName="PNR" value="#[vars.PNR default '']"/>
+    <flow-ref doc:name="check-in-flights-management" doc:id="15224e83-768f-42bf-b9e3-86774986a36c" name="check-in-flights-management" />
+    <flow-ref doc:name="register-passenger-data" doc:id="ad6930bc-b954-4a0a-93c3-18d5c55dc69d" name="register-passenger-data" />
+    <flow-ref doc:name="create-payment-for-bags" doc:id="c8b76842-4461-4307-a650-0aef2f0a1f0d" name="create-payment-for-bags" />
+    <ee:transform>
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  paymentID: "PAY-1AKD7482FAB9STATKO"
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+  </flow>
+</mule>

@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:12 JST 2022
+maven-settings-builder-3.5.0.pom>=
+maven-settings-builder-3.5.0.pom>central=
+maven-settings-builder-3.5.0.jar>central=

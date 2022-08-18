@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:40:53 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524053055
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524052798
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.sonatype.forge\:forge-parent\:pom\:10 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/sonatype/forge/forge-parent/10/forge-parent-10.pom. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524052622

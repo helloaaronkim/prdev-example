@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:48:29 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524509659
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524507502
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.sonatype.aether\:aether-impl\:jar\:1.7 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524505870

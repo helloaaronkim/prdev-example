@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava-parent</artifactId>
+  <versioning>
+    <release>25.1-jre</release>
+    <versions>
+      <version>26.0-android</version>
+      <version>29.0-jre</version>
+      <version>25.1-jre</version>
+      <version>31.1-jre</version>
+    </versions>
+    <lastUpdated>20220815102015</lastUpdated>
+  </versioning>
+</metadata>

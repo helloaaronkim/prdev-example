@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mulesoft.anypoint</groupId>
+        <artifactId>api-gateway</artifactId>
+        <version>4.4.0-20220622</version>
+    </parent>
+
+    <artifactId>api-gateway-modules</artifactId>
+    <packaging>pom</packaging>
+    <name>API Gateway Modules</name>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+    </properties>
+
+    <modules>
+        <module>analytics</module>
+        <module>analytics-template</module>
+        <module>api-deployment</module>
+        <module>autodiscovery</module>
+        <module>hdp</module>
+        <module>client</module>
+        <module>gatekeeper-template</module>
+        <module>policies</module>
+        <module>s3-service-provider</module>
+        <module>metrics-collector</module>
+    </modules>
+
+</project>

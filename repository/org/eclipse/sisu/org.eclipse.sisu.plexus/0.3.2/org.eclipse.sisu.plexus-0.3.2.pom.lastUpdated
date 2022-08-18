@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:44:48 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524288381
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524288009
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.eclipse.sisu\:org.eclipse.sisu.plexus\:pom\:0.3.2 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.2/org.eclipse.sisu.plexus-0.3.2.pom. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524287833

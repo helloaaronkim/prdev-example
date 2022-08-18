@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:02 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524782217
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524781946
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.jcraft\:jsch\:pom\:0.1.55 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/jcraft/jsch/0.1.55/jsch-0.1.55.pom. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524781594
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524781770

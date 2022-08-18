@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:03 JST 2022
+guava-31.0.1-jre.pom>=
+guava-31.0.1-jre.jar>=
+guava-31.0.1-jre.pom>central=

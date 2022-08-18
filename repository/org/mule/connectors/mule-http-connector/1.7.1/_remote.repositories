@@ -1,0 +1,8 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+mule-http-connector-1.7.1-mule-plugin.jar>=
+mule-http-connector-1.7.1-mule-plugin.jar>anypoint-exchange-v3-student-deployment=
+mule-http-connector-1.7.1.pom>anypoint-exchange-v3-student-deployment=
+mule-http-connector-1.7.1-mule-plugin.jar>anypoint-exchange-v3=
+mule-http-connector-1.7.1.pom>anypoint-exchange-v3=
+mule-http-connector-1.7.1.pom>=

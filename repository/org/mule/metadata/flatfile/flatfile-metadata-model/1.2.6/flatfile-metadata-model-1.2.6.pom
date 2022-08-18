@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mule.metadata.flatfile</groupId>
+  <artifactId>flatfile-metadata-model</artifactId>
+  <version>1.2.6</version>
+  <packaging>pom</packaging>
+
+  <name>Flatfile TypeBuilder</name>
+  <description>Metadata Builder for flat file formats (fixed width, copybook, and flat file)</description>
+
+  <properties>
+    <jdk.version>1.8</jdk.version>
+    <metadataModelVersion>1.3.0-20210304</metadataModelVersion>
+    <edi-parser.version>2.3.13-CONN-9598</edi-parser.version>
+    <base.scala.version>2.12</base.scala.version>
+    <scala.version>${base.scala.version}.10</scala.version>
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    <javaFormatter.plugin.version>2.0.1</javaFormatter.plugin.version>
+    <formatterConfigPath>formatter.xml</formatterConfigPath>
+    <commonsIoVersion>1.3.2</commonsIoVersion>
+    <jacoco.version>0.8.5</jacoco.version>
+  </properties>
+
+  <modules>
+    <module>schema-metadata</module>
+    <module>type-builder</module>
+    <module>systests</module>
+  </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mule.runtime</groupId>
+      <artifactId>mule-metadata-model-api</artifactId>
+      <version>${metadataModelVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.edi</groupId>
+      <artifactId>edi-parser</artifactId>
+      <version>${edi-parser.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.5</version>
+          <executions>
+            <execution>
+              <id>prepare-agent</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <goals>
+                <goal>report</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

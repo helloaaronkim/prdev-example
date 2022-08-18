@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:45:38 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524338283
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524320594
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.google.j2objc\:j2objc-annotations\:jar\:1.1 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524314005

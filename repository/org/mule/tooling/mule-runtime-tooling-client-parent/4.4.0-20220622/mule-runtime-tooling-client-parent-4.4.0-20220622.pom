@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mule.tooling</groupId>
+    <artifactId>mule-runtime-tooling-client-parent</artifactId>
+    <version>4.4.0-20220622</version>
+    <packaging>pom</packaging>
+    <name>Mule Runtime Tooling Client :: Parent POM</name>
+    <description>Parent POM for Mule Runtime Tooling Client modules</description>
+    <url>https://github.com/mulesoft/mule-tooling-client</url>
+
+    <organization>
+        <name>MuleSoft, Inc.</name>
+        <url>http://www.mulesoft.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>CPAL v1.0</name>
+            <url>http://www.mulesoft.com/CPAL</url>
+        </license>
+    </licenses>
+    <mailingLists>
+        <mailingList>
+            <name>developers</name>
+            <post>mule-esb@mulesoft.com</post>
+        </mailingList>
+    </mailingLists>
+
+    <modules>
+        <module>mule-runtime-process-controller</module>
+        <module>mule-runtime-tooling-client</module>
+        <module>mule-runtime-tooling-modules-parent-tests</module>
+        <module>mule-runtime-tooling-client-bundle</module>
+        <module>mule-runtime-tooling-tests</module>
+        <module>mule-agent-rest-client</module>
+        <module>mule-runtime-tooling-tests-utils</module>
+        <module>tooling-agent-plugin</module>
+    </modules>
+
+    <developers>
+        <developer>
+            <id>canoasan</id>
+            <name>Matias Baldini</name>
+            <email>matias.baldini@mulesoft.com</email>
+            <roles>
+                <role>Project Manager</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>pablolagreca</id>
+            <name>Pablo La Greca</name>
+        </developer>
+        <developer>
+            <id>gsfernandes</id>
+            <name>Guillermo Fernandes</name>
+        </developer>
+        <developer>
+            <id>mbuchwald</id>
+            <name>Martin Buchwald</name>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>jira</system>
+        <url>http://www.mulesoft.org/jira/browse/MULE</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/mule-runtime-tooling-client.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule-runtime-tooling-client.git</developerConnection>
+        <url>https://github.com/mulesoft/mule-runtime-tooling-client</url>
+    </scm>
+
+    <properties>
+        <javaVersion>1.8</javaVersion>
+        <formatterGoal>validate</formatterGoal>
+        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
+        <maven.version>3.3.9</maven.version>
+
+        <mule.tooling.api.version>1.4.0-20220622</mule.tooling.api.version>
+        <tooling.test.mule.version>${mule.version}</tooling.test.mule.version>
+
+        <licm.studio.version>1.1.5</licm.studio.version>
+        <xstream.version>1.4.15</xstream.version>
+        <mule.agent.version>2.4.30</mule.agent.version>
+
+        <mule.embedded.api>1.4.0-20220622</mule.embedded.api>
+
+        <mule.maven.client.test.version>1.6.0-20220622</mule.maven.client.test.version>
+        <weaveServiceVersion>2.4.0-20220623</weaveServiceVersion>
+        <mule.api.kit.metadata.api.version>2.3.0</mule.api.kit.metadata.api.version>
+        <mule.service.api.kit.metadata.version>2.3.2</mule.service.api.kit.metadata.version>
+
+        <mule.extensions.maven.plugin.version>1.4.1</mule.extensions.maven.plugin.version>
+
+        <mule.version>4.4.0-20220622</mule.version>
+        <api.gateway.bom.api.version>4.4.0-20220622</api.gateway.bom.api.version>
+        <mule.datasense.version>4.4.0-20220622</mule.datasense.version>
+
+        <javaXmlBindVersion>2.1.13</javaXmlBindVersion>
+
+        <toolingSupportTestExtensionVersion>4.4.0-20220622</toolingSupportTestExtensionVersion>
+        
+        <agwHttpProxyExtensionVersion>1.1.2</agwHttpProxyExtensionVersion>
+        <extensionWithMetadataVersion>1.0.0-SNAPSHOT</extensionWithMetadataVersion>
+        <!-- HTTP 1.1.0 has already used new features from SDK 1.1.0 that makes them incompatible with 4.0.0 -->
+
+        <munitToolsVersion>2.3.6</munitToolsVersion>
+        <munitRunnerVersion>2.3.6</munitRunnerVersion>
+        <munitExtensionsMavenPlugin>1.0.0-BETA2</munitExtensionsMavenPlugin>
+        <!-- JMS 1.1.0 has already used new features from SDK 1.1.0 that makes them incompatible with 4.0.0 -->
+        <muleJmsConnectorVersion>1.0.0</muleJmsConnectorVersion>
+
+        <marvelExtensionVersion>4.4.0-20220622</marvelExtensionVersion>
+        <smartConnectorUsingCoreVersion>4.4.0-20220622</smartConnectorUsingCoreVersion>
+        <smartConnectorUsingDwVersion>4.4.0-20220622</smartConnectorUsingDwVersion>
+        <smartConnectorUsingCustomTypesVersion>4.4.0-20220622</smartConnectorUsingCustomTypesVersion>
+        <smartConnectorUsingSmartConnectorVersion>4.4.0-20220622</smartConnectorUsingSmartConnectorVersion>
+        <smartConnectorUsingFileVersion>4.4.0-20220622</smartConnectorUsingFileVersion>
+        <smartConnectorUsingHttpVersion>4.4.0-20220622</smartConnectorUsingHttpVersion>
+        <testCraftedExtensionVersion>4.4.0-20220622</testCraftedExtensionVersion>
+        <muleHttpFixedConnectorVersion>1.0.0</muleHttpFixedConnectorVersion>
+        <muleDependenciesBomVersion>1.0.18</muleDependenciesBomVersion>
+
+        <muleSoapKitModuleVersion>1.1.2</muleSoapKitModuleVersion>
+
+        <maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
+        <maven.assembly.plugin.version>3.3.0</maven.assembly.plugin.version>
+
+        <jersey.version>2.25</jersey.version>
+        <jackson.version>2.11.3</jackson.version>
+        <javax.annotation-api.version>1.2</javax.annotation-api.version>
+        <log4j.version>2.17.1</log4j.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <disruptor.version>3.3.7</disruptor.version>
+        <commons.collection4.version>4.1</commons.collection4.version>
+        <commons.codec.version>1.13</commons.codec.version>
+        <commons.lang.version>3.8.1</commons.lang.version>
+        <commons.io.version>2.7</commons.io.version>
+
+        <wiremock.version>2.18.0</wiremock.version>
+
+        <guava.version>25.1-jre</guava.version>
+        <awaitility.version>2.0.0</awaitility.version>
+        <zt.exec.version>1.12</zt.exec.version>
+        <zt.process.killer>1.4</zt.process.killer>
+        <greenmail.version>1.5.0</greenmail.version>
+        <derby.version>10.15.1.3</derby.version>
+
+        <mockitoVersion>2.26.0</mockitoVersion>
+        <junitVersion>4.12</junitVersion>
+        <hamcrestVersion>1.3</hamcrestVersion>
+        <jsonassert.version>1.5.0</jsonassert.version>
+        <javaFormatter.plugin.version>2.14.0</javaFormatter.plugin.version>
+        <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
+        <allureJunitVersion>2.8.1</allureJunitVersion>
+        <allureReportVersion>2.8.1</allureReportVersion>
+        <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
+        <aspectjVersion>1.8.10</aspectjVersion>
+        <jacoco.version>0.8.6</jacoco.version>
+
+        <formatterConfigPath>formatter.xml</formatterConfigPath>
+        <skipVerifications>false</skipVerifications>
+
+        <muleApiTestVersion>1.4.0-20220622</muleApiTestVersion>
+        <muleExtensionsApiVersion>1.4.0-20220622</muleExtensionsApiVersion>
+    </properties>
+
+    <!--
+        group/artifact id only, version and exclusions are specified
+        via dependency management
+    -->
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mule.tooling</groupId>
+                <artifactId>mule-tooling-api</artifactId>
+                <version>${mule.tooling.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.tooling</groupId>
+                <artifactId>mule-tooling-concurrent-local-repository</artifactId>
+                <version>${mule.tooling.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.bom</groupId>
+                <artifactId>mule-test-dependencies-bom</artifactId>
+                <version>${muleDependenciesBomVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.licm</groupId>
+                <artifactId>licm-studio</artifactId>
+                <version>${licm.studio.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${xstream.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.tooling</groupId>
+                <artifactId>mule-tooling-bootstrap</artifactId>
+                <version>${mule.tooling.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.distributions</groupId>
+                <artifactId>mule-runtime-impl-bom</artifactId>
+                <version>${mule.version}</version>
+                <type>pom</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mule.distributions</groupId>
+                        <artifactId>mule-services-all</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.mulesoft.mule.distributions</groupId>
+                        <artifactId>api-gateway-bom-impl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.distributions</groupId>
+                <artifactId>api-gateway-bom-api</artifactId>
+                <version>${api.gateway.bom.api.version}</version>
+                <type>pom</type>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>mule-encryption</artifactId>
+                        <groupId>org.mule</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.distributions</groupId>
+                <artifactId>mule-runtime-impl-bom</artifactId>
+                <version>${mule.version}</version>
+                <type>pom</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.mulesoft.licm</groupId>
+                        <artifactId>licm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.mulesoft.mule.distributions</groupId>
+                        <artifactId>mule-services-all</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.mulesoft.mule.distributions</groupId>
+                        <artifactId>api-gateway-bom-impl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-extensions-api-persistence</artifactId>
+                <version>${muleExtensionsApiVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule</groupId>
+                <artifactId>mule-datasense-api</artifactId>
+                <version>${mule.datasense.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule</groupId>
+                <artifactId>mule-datasense</artifactId>
+                <version>${mule.datasense.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.mulesoft.services</groupId>
+                        <artifactId>mule-service-weave-ee</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-apikit-metadata-api</artifactId>
+                <version>${mule.api.kit.metadata.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.services</groupId>
+                <artifactId>mule-service-apikit-metadata</artifactId>
+                <version>${mule.service.api.kit.metadata.version}</version>
+                <classifier>mule-service</classifier>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-dwb-api</artifactId>
+                <version>${weaveServiceVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.services</groupId>
+                <artifactId>mule-service-weave-ee</artifactId>
+                <version>${weaveServiceVersion}</version>
+                <classifier>mule-service</classifier>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-embedded-api</artifactId>
+                <version>${mule.embedded.api}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collection4.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>${jersey.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-json-jackson</artifactId>
+                <version>${jersey.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-multipart</artifactId>
+                <version>${jersey.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-base</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jsonSchema</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>${javax.annotation-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>zt-exec</artifactId>
+                <version>${zt.exec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>zt-process-killer</artifactId>
+                <version>${zt.process.killer}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>${awaitility.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.icegreen</groupId>
+                <artifactId>greenmail</artifactId>
+                <version>${greenmail.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-web-interface</artifactId>
+                <version>${mule.agent.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-api</artifactId>
+                <version>${mule.agent.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${javaXmlBindVersion}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.xml.stream</groupId>
+                        <artifactId>stax-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--Logging-->
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-1.2-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock</artifactId>
+                <version>${wiremock.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sf.jopt-simple</groupId>
+                        <artifactId>jopt-simple</artifactId>
+                    </exclusion>
+                    <!-- mule-maven-client depends on a particular version of these components -->
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrestVersion}</version>
+            </dependency>
+
+            <!-- Allure -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit4</artifactId>
+                <version>${allureJunitVersion}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Logger -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+        </dependency>
+
+        <!-- Overwrite Jackson dependency with our own version -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jsonSchema</artifactId>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>com.mulesoft.mule.runtime.bom</groupId>
+            <artifactId>mule-test-dependencies-bom</artifactId>
+            <version>${muleDependenciesBomVersion}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${hamcrestVersion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junitVersion}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockitoVersion}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.objenesis</groupId>
+                    <artifactId>objenesis</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.mulesoft.munit</groupId>
+                    <artifactId>munit-extensions-maven-plugin</artifactId>
+                    <version>${munitExtensionsMavenPlugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <encoding>ISO-8859-1</encoding>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <proc>none</proc>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>2.11</version>
+                    <configuration>
+                        <header>com/mycila/maven/plugin/license/templates/CPAL.txt</header>
+                        <properties>
+                            <owner>MuleSoft, Inc</owner>
+                            <project.url>http://www.mulesoft.com</project.url>
+                        </properties>
+                        <includes>
+                            <include>**/*.java</include>
+                        </includes>
+                        <mapping>
+                            <java>SLASHSTAR_STYLE</java>
+                        </mapping>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>net.revelc.code.formatter</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>${javaFormatter.plugin.version}</version>
+                    <configuration>
+                        <compilerCompliance>${javaVersion}</compilerCompliance>
+                        <compilerSource>${javaVersion}</compilerSource>
+                        <compilerTargetPlatform>${javaVersion}</compilerTargetPlatform>
+                        <configFile>${basedir}/${formatterConfigPath}</configFile>
+                        <configJsFile>${basedir}/${formatterConfigPath}</configJsFile>
+                        <aggregator>false</aggregator>
+                        <executionRoot>true</executionRoot>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>${formatterGoal}</goal>
+                            </goals>
+                            <configuration>
+                                <skipFormatting>${skipVerifications}</skipFormatting>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven.dependency.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.qameta.allure</groupId>
+                    <artifactId>allure-maven</artifactId>
+                    <version>${allure.maven.plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven.assembly.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.reformanda.semper</groupId>
+                    <artifactId>dependencyversion-maven-plugin</artifactId>
+                    <version>1.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>set-all</id>
+                            <goals>
+                                <goal>set-version</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Dfile.encoding=UTF-8 -Xmx1024m -Xms256m -XX:+HeapDumpOnOutOfMemoryError
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjVersion}/aspectjweaver-${aspectjVersion}.jar
+                        -javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/${jacoco.version}/org.jacoco.agent-${jacoco.version}-runtime.jar=destfile='${session.executionRootDirectory}/target/jacoco.exec'
+                    </argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.junit4.AllureJunit4</value>
+                        </property>
+                    </properties>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectjVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>org.jacoco.agent</artifactId>
+                        <version>${jacoco.version}</version>
+                        <classifier>runtime</classifier>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <configuration>
+                    <reportVersion>${allureReportVersion}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-ee-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>mulesoft-private</id>
+            <name>Mulesoft internal repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/private/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-private</id>
+            <name>Mulesoft internal repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/private/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <properties>
+                <skipVerifications>false</skipVerifications>
+                <skipGpg>false</skipGpg>
+                <skipNoSnapshotsEnforcerPluginRule>false</skipNoSnapshotsEnforcerPluginRule>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <additionalparam>${xDocLint}</additionalparam>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                    <goal>test-jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <skip>${skipGpg}</skip>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                        </requireReleaseDeps>
+                                        <requireReleaseVersion>
+                                            <message>No Snapshots Allowed in Project Version!</message>
+                                        </requireReleaseVersion>
+                                        <requirePluginVersions>
+                                            <message>Best Practice is to always define plugin versions!</message>
+                                            <unCheckedPluginList>
+                                                org.apache.maven.plugins:maven-clean-plugin,
+                                                org.apache.maven.plugins:maven-install-plugin,
+                                                org.apache.maven.plugins:maven-source-plugin,
+                                                org.apache.maven.plugins:maven-site-plugin,
+                                                org.apache.maven.plugins:maven-javadoc-plugin,
+                                                org.apache.maven.plugins:maven-deploy-plugin,
+                                                org.apache.maven.plugins:maven-resources-plugin,
+                                                org.apache.maven.plugins:maven-jar-plugin,
+                                                org.apache.maven.plugins:maven-surefire-plugin
+                                            </unCheckedPluginList>
+                                        </requirePluginVersions>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release-dry-run</id>
+            <properties>
+                <skipNoSnapshotsEnforcerPluginRule>false</skipNoSnapshotsEnforcerPluginRule>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                            <excludes>
+                                                <exclude>org.mule.weave:*</exclude>
+                                                <exclude>org.mule.services:mule-service-weave</exclude>
+                                                <exclude>com.mulesoft.services:mule-service-weave-ee</exclude>
+
+                                                <exclude>org.mule.edi:edi-parser</exclude>
+                                                <exclude>org.mule.edi:ltm-datamodel</exclude>
+                                                <exclude>org.mule.metadata.flatfile:type-builder</exclude>
+                                                <exclude>org.mule.edi:schema-metadata</exclude>
+
+                                                <exclude>org.mule.raml:raml-parser-interface</exclude>
+                                                <exclude>org.mule.raml:raml-parser-interface-impl-v1</exclude>
+                                                <exclude>org.mule.raml:raml-parser-interface-impl-v2</exclude>
+                                                <exclude>org.raml:raml-parser</exclude>
+                                                <exclude>org.mule.tools:mule-apikit-common</exclude>
+                                                <exclude>org.mule.tools:mule-apikit-metadata</exclude>
+
+                                                <exclude>com.mulesoft.mule.distributions:api-gateway-bom-api</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-api</exclude>
+
+                                                <exclude>com.mulesoft.agent:mule-agent-api</exclude>
+                                                <exclude>com.mulesoft.agent:mule-agent-plugin</exclude>
+                                                <exclude>com.mulesoft.agent:mule-agent-web-interface</exclude>
+
+                                                <exclude>org.mule.tools.maven:mule-classloader-model</exclude>
+                                            </excludes>
+                                        </requireReleaseDeps>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

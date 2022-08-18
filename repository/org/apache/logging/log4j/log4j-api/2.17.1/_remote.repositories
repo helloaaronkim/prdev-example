@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+log4j-api-2.17.1.jar>central=
+log4j-api-2.17.1.pom>central=
+log4j-api-2.17.1.jar>=
+log4j-api-2.17.1.pom>=

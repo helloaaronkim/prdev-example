@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mulesoft.anypoint</groupId>
+        <artifactId>api-gateway-parent</artifactId>
+        <version>4.5.0-20220125</version>
+    </parent>
+
+    <artifactId>api-gateway</artifactId>
+    <version>4.5.0-20220125</version>
+    <packaging>pom</packaging>
+    <name>API Gateway</name>
+
+    <modules>
+        <module>core</module>
+        <module>modules</module>
+        <module>tests</module>
+    </modules>
+
+    <!-- Build -->
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/api-gateway.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/api-gateway.git</developerConnection>
+        <url>http://github.com/mulesoft/api-gateway</url>
+    </scm>
+
+    <properties>
+        <tita.unit.version>2.6.0</tita.unit.version>
+        <api.gateway.backoff.version>1.0.0</api.gateway.backoff.version>
+    </properties>
+
+    <repositories>
+        <!--
+            This repository definition is redundant as it's already present in the
+            parent pom.
+
+            However, when building the Enterprise modules with an empty local repository
+            for the first time, the build *has* to know where to get its parent from and
+            there's no way around this repo definition.
+        -->
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mule-ee-snapshots</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mule.distributions</groupId>
+                <artifactId>mule-services-all</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junitVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrestVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclientVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockitoVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockitoVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commonsIoVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commonsLangVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson2Version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson2Version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${jodaTimeVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

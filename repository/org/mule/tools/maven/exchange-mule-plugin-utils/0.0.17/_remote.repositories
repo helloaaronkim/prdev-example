@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:12 JST 2022
+exchange-mule-plugin-utils-0.0.17.jar>=
+exchange-mule-plugin-utils-0.0.17.pom>=
+exchange-mule-plugin-utils-0.0.17.jar>mulesoft-releases=
+exchange-mule-plugin-utils-0.0.17.pom>mulesoft-releases=

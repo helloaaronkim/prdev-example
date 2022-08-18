@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:12 JST 2022
+maven-clean-plugin-3.0.0.jar>central=
+maven-clean-plugin-3.0.0.pom>=
+maven-clean-plugin-3.0.0.pom>central=
+maven-clean-plugin-3.0.0.jar>=

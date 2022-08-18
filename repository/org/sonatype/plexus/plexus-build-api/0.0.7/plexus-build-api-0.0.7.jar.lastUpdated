@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:30 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524810738
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524810230
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.sonatype.plexus\:plexus-build-api\:jar\:0.0.7 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar. Error code 401, Unauthorized
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524809307

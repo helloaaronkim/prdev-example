@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+jakarta.xml.bind-api-2.3.3.jar>central=
+jakarta.xml.bind-api-2.3.3.jar>=
+jakarta.xml.bind-api-2.3.3.pom>=
+jakarta.xml.bind-api-2.3.3.pom>central=

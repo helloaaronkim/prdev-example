@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.mulesoft.connectors</groupId>
+  <artifactId>mule-connectivity-parent</artifactId>
+  <versioning>
+    <release>3.3.0-RUNTIME.4.1.x</release>
+    <versions>
+      <version>3.3.0-RUNTIME.4.1.x</version>
+    </versions>
+    <lastUpdated>20220815005404</lastUpdated>
+  </versioning>
+</metadata>

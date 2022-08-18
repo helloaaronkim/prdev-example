@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-tracing-module-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Mule Tracing Module Extension</name>
+    <description>Mule module for traceability features, including customizable MDC and CorrelationID</description>
+
+    <parent>
+        <groupId>org.mule.extensions</groupId>
+        <artifactId>mule-core-modules-parent</artifactId>
+        <version>1.4.0</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <tracing.module.version>${project.version}</tracing.module.version>
+        <maven.help.plugin.version>3.2.0</maven.help.plugin.version>
+    </properties>
+
+    <modules>
+        <module>mule-tracing-module</module>
+        <module>mule-tracing-module-test-policies</module>
+        <module>mule-tracing-module-tita-tests</module>
+    </modules>
+
+</project>

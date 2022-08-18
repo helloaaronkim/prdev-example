@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+maven-artifact-3.0.jar>=
+maven-artifact-3.0.pom>central=
+maven-artifact-3.0.pom>=
+maven-artifact-3.0.jar>central=

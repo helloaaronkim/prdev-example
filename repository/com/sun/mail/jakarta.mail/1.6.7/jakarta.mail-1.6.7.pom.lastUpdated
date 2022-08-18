@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:48:47 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524527292
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524527012
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.sun.mail\:jakarta.mail\:pom\:1.6.7 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/sun/mail/jakarta.mail/1.6.7/jakarta.mail-1.6.7.pom. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524526651
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524526836

@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+xerces2-xsd11-2.11.3.jar>=
+xerces2-xsd11-2.11.3.pom>=
+xerces2-xsd11-2.11.3.pom>mulesoft-releases=
+xerces2-xsd11-2.11.3.jar>mulesoft-releases=

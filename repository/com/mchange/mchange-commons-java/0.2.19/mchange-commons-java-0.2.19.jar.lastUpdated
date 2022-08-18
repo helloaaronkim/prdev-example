@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:12 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524792883
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524791238
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.mchange\:mchange-commons-java\:jar\:0.2.19 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/mchange/mchange-commons-java/0.2.19/mchange-commons-java-0.2.19.jar. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524790500
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524790881

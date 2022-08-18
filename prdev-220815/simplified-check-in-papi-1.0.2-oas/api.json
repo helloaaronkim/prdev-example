@@ -1,0 +1,328 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Check-In PAPI",
+    "description": "Check-In PAPI allows you to check-in to an AnyAirline flight and check-in any additional baggage by providing a PNR(Passenger Name Record) and last name, paying for any baggage using Paypal.",
+    "version": "v1"
+  },
+  "host": "prdev-220815-check-in-papi.us-e2.cloudhub.io",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/tickets/{PNR}": {
+      "parameters": [
+        {
+          "name": "PNR",
+          "required": true,
+          "in": "path",
+          "type": "string"
+        }
+      ]
+    },
+    "/tickets/{PNR}/checkin": {
+      "x-amf-description": "Checks the passenger in with given number of bags",
+      "put": {
+        "parameters": [
+          {
+            "name": "PNR",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          },
+          {
+            "x-amf-mediaType": "application/json",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "description": "Represents a check-in request for a given passenger.",
+              "example": {
+                "lastName": "Smith",
+                "numBags": 2
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "lastName",
+                "numBags"
+              ],
+              "properties": {
+                "lastName": {
+                  "type": "string"
+                },
+                "numBags": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If there is baggage to check in, return a payment ID from the Paypal SAPI for the passenger to approve payment. Payment approval happens in the Mobile App. If there is no baggage to check in, return the boarding pass.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "x-amf-union": [
+                {
+                  "description": "Represents an instance of a Payment made.",
+                  "example": {
+                    "paymentID": "PAY-1AKD7482FAB9STATKO"
+                  },
+                  "type": "object",
+                  "additionalProperties": true,
+                  "required": [
+                    "paymentID"
+                  ],
+                  "properties": {
+                    "paymentID": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "description": "Represents a Boarding Pass for a Passenger linked via PNR(Passenger Name Record).",
+                  "example": {
+                    "flight": "ANY6584",
+                    "lastName": "Smith",
+                    "gate": "4A",
+                    "PNR": "928382J",
+                    "flightDate": "2019-02-14",
+                    "boarding": "13:15:00",
+                    "seat": "16C",
+                    "depart": "14:30:00",
+                    "class": "Economy",
+                    "airportArrive": "SFO",
+                    "airportDepart": "ATL",
+                    "bagsCount": 2
+                  },
+                  "type": "object",
+                  "additionalProperties": true,
+                  "required": [
+                    "lastName",
+                    "flightDate",
+                    "depart",
+                    "boarding",
+                    "gate",
+                    "flight",
+                    "airportDepart",
+                    "airportArrive",
+                    "class",
+                    "seat",
+                    "bagsCount",
+                    "PNR"
+                  ],
+                  "properties": {
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "flightDate": {
+                      "description": "flight date in local time according to the departing airport",
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "depart": {
+                      "description": "flight departure time in local time according to the departing airport",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "boarding": {
+                      "description": "boarding time in local time according to the departing airport",
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "gate": {
+                      "type": "string"
+                    },
+                    "flight": {
+                      "type": "string"
+                    },
+                    "airportDepart": {
+                      "type": "string"
+                    },
+                    "airportArrive": {
+                      "type": "string"
+                    },
+                    "class": {
+                      "enum": [
+                        "First",
+                        "Premium",
+                        "Business",
+                        "Economy"
+                      ],
+                      "type": "string"
+                    },
+                    "seat": {
+                      "type": "string"
+                    },
+                    "bagsCount": {
+                      "type": "number"
+                    },
+                    "PNR": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "message": "Invalid passenger name record or bad data uploaded."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{PNR}/paymentApproval": {
+      "x-amf-description": "Execute payment after passenger's approval from the Mobile App.",
+      "put": {
+        "parameters": [
+          {
+            "name": "PNR",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          },
+          {
+            "x-amf-mediaType": "application/json",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "description": "Represents an approved Payment linked to the Payment requested and the Payer that made the payment by ID.",
+              "example": {
+                "paymentID": "PAY-1AKD7482FAB9STATKO",
+                "payerID": "STK829AJDK9"
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "paymentID",
+                "payerID"
+              ],
+              "properties": {
+                "paymentID": {
+                  "type": "string"
+                },
+                "payerID": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "description": "Represents a Boarding Pass for a Passenger linked via PNR(Passenger Name Record).",
+              "example": {
+                "flight": "ANY6584",
+                "lastName": "Smith",
+                "gate": "4A",
+                "PNR": "928382J",
+                "flightDate": "2019-02-14",
+                "boarding": "13:15:00",
+                "seat": "16C",
+                "depart": "14:30:00",
+                "class": "Economy",
+                "airportArrive": "SFO",
+                "airportDepart": "ATL",
+                "bagsCount": 2
+              },
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "lastName",
+                "flightDate",
+                "depart",
+                "boarding",
+                "gate",
+                "flight",
+                "airportDepart",
+                "airportArrive",
+                "class",
+                "seat",
+                "bagsCount",
+                "PNR"
+              ],
+              "properties": {
+                "lastName": {
+                  "type": "string"
+                },
+                "flightDate": {
+                  "description": "flight date in local time according to the departing airport",
+                  "type": "string",
+                  "format": "date"
+                },
+                "depart": {
+                  "description": "flight departure time in local time according to the departing airport",
+                  "type": "string",
+                  "format": "time"
+                },
+                "boarding": {
+                  "description": "boarding time in local time according to the departing airport",
+                  "type": "string",
+                  "format": "time"
+                },
+                "gate": {
+                  "type": "string"
+                },
+                "flight": {
+                  "type": "string"
+                },
+                "airportDepart": {
+                  "type": "string"
+                },
+                "airportArrive": {
+                  "type": "string"
+                },
+                "class": {
+                  "enum": [
+                    "First",
+                    "Premium",
+                    "Business",
+                    "Economy"
+                  ],
+                  "type": "string"
+                },
+                "seat": {
+                  "type": "string"
+                },
+                "bagsCount": {
+                  "type": "number"
+                },
+                "PNR": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "message": "Invalid passenger name record or bad data uploaded."
+              }
+            }
+          },
+          "403": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "message": "Invalid paymentId and payerId combination given. Cannot approve payment."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

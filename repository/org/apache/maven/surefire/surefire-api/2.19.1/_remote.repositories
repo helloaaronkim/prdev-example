@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+surefire-api-2.19.1.pom>=
+surefire-api-2.19.1.jar>=
+surefire-api-2.19.1.pom>central=

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.mule.apikit</groupId>
+  <artifactId>raml-parser-interface</artifactId>
+  <versioning>
+    <release>2.3.1</release>
+    <versions>
+      <version>2.3.1</version>
+    </versions>
+    <lastUpdated>20220815005404</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,1163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!-- Version -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mule.runtime</groupId>
+    <artifactId>mule</artifactId>
+    <packaging>pom</packaging>
+    <version>4.4.0-20220622</version>
+
+    <!-- Organization -->
+    <organization>
+        <name>MuleSoft, Inc.</name>
+        <url>http://www.mulesoft.com</url>
+    </organization>
+
+    <!-- Project -->
+    <name>Mule Kernel</name>
+    <description>
+        Mule is the runtime engine of Anypoint™ Platform. It is the industry’s only unified platform that combines data and application integration across legacy systems, SaaS applications, and APIs with hybrid deployment options for maximum flexibility.
+    </description>
+    <url>https://developer.mulesoft.com/</url>
+    <inceptionYear>2003</inceptionYear>
+    <licenses>
+        <license>
+            <name>CPAL v1.0</name>
+            <url>http://www.mulesoft.com/CPAL</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>canoasan</id>
+            <name>Matias Baldini</name>
+            <email>matias.baldini@mulesoft.com</email>
+            <roles>
+                <role>Project Manager</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>dfeist</id>
+            <name>Daniel Feist</name>
+        </developer>
+        <developer>
+            <id>afelisatti</id>
+            <name>Ana Felisatti</name>
+        </developer>
+        <developer>
+            <id>marianogonzalez</id>
+            <name>Mariano Gonzalez</name>
+        </developer>
+        <developer>
+            <id>aiannucci</id>
+            <name>Alejandro Iannucci</name>
+        </developer>
+        <developer>
+            <id>pablokraan</id>
+            <name>Pablo Kraan</name>
+        </developer>
+        <developer>
+            <id>pablolagreca</id>
+            <name>Pablo La Greca</name>
+        </developer>
+        <developer>
+            <id>anosenzo</id>
+            <name>Alejandro Nosenzo</name>
+        </developer>
+        <developer>
+            <id>elrodro83</id>
+            <name>Rodrigo Merino</name>
+        </developer>
+        <developer>
+            <id>gsfernandes</id>
+            <name>Guillermo Fernandes</name>
+        </developer>
+        <developer>
+            <id>alepulver</id>
+            <name>Alejandro Pulver</name>
+        </developer>
+        <developer>
+            <id>mbuchwald</id>
+            <name>Martin Buchwald</name>
+        </developer>
+        <developer>
+            <id>alegmarra</id>
+            <name>Alejandro Garcia Marra</name>
+        </developer>
+        <developer>
+            <id>estebanwasinger</id>
+            <name>Esteban Wasinger</name>
+        </developer>
+        <developer>
+            <id>juandesi</id>
+            <name>Juan Desimoni</name>
+        </developer>
+        <developer>
+            <id>ndinu</id>
+            <name>Nicolas Di Nucci</name>
+        </developer>
+        <developer>
+            <id>fsgonz</id>
+            <name>Fabian Gonzalez</name>
+        </developer>
+        <developer>
+            <id>lucianoRM</id>
+            <name>Luciano Raineri Marchina</name>
+        </developer>
+    </developers>
+    <contributors>
+        <!-- Refer to https://github.com/mulesoft/mule/graphs/contributors -->
+    </contributors>
+    <issueManagement>
+        <system>jira</system>
+        <url>https://www.mulesoft.org/jira/projects/MULE/issues/</url>
+    </issueManagement>
+
+    <!-- Build -->
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/mule.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule.git</developerConnection>
+        <url>https://github.com/mulesoft/mule</url>
+    </scm>
+
+    <modules>
+        <module>runtime-extension-model</module>
+        <module>core</module>
+        <module>core-tests</module>
+        <module>modules</module>
+        <module>tests</module>
+    </modules>
+
+    <properties>
+        <javaVersion>1.8</javaVersion>
+
+        <!-- Properties that can be overriden in submodules -->
+        <skipExportTests>true</skipExportTests>
+
+        <!-- Properties that can be used to enable/disable parts of the build via cmd line or profiles -->
+        <skipVerifications>false</skipVerifications>
+        <skipInstalls>false</skipInstalls>
+
+        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+        <vmtype>org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType</vmtype>
+        <!--
+            The above project.url will not be picked up in the manifest,
+            instead a module artifact id is erroneously substituted.
+         -->
+        <productUrl>https://developer.mulesoft.com/</productUrl>
+        <dev.list>mule-esb@mulesoft.com</dev.list>
+
+        <!--
+             Use the name of an Eclipse Java execution environment, Eclipse will
+             choose the right one by itself.
+        -->
+        <jdk8Name>JavaSE-${javaVersion}</jdk8Name>
+
+        <muleBomVersion>4.4.0-20220622</muleBomVersion>
+
+        <activemqVersion>5.15.12</activemqVersion>
+        <aspectjVersion>1.9.2</aspectjVersion>
+        <derbyVersion>10.14.2.0</derbyVersion>
+        <geronimoSpecsJmsVersion>1.1.1</geronimoSpecsJmsVersion>
+        <geronimoSpecsServletApiVersion>1.0</geronimoSpecsServletApiVersion>
+        <weaveVersion>2.4.0-20220623</weaveVersion>
+
+        <!-- Mule Snapshot Dependencies -->
+        <muleDslApiVersion>1.4.0-20220622</muleDslApiVersion>
+        <muleAstVersion>1.0.0-20220622</muleAstVersion>
+        <mulePropertiesApiVersion>1.0.0-20220622</mulePropertiesApiVersion>
+        <muleExtensionsApiVersion>1.4.0-20220622</muleExtensionsApiVersion>
+        <muleConnectivityApiVersion>1.0.0</muleConnectivityApiVersion>
+        <muleHttpPolicyApiVersion>1.4.0-20220622</muleHttpPolicyApiVersion>
+        <muleMavenClientApi>1.6.0-20220622</muleMavenClientApi>
+        <muleMavenClientImpl>1.6.0-20220622</muleMavenClientImpl>
+        <muleMavenClientTest>1.6.0-20220622</muleMavenClientTest>
+        <mulePolicyApiVersion>1.4.0-20220622</mulePolicyApiVersion>
+        <muleApiVersion>1.4.0-20220622</muleApiVersion>
+        <muleMetadataModelVersion>1.4.0-20220622</muleMetadataModelVersion>
+        <metadataModelApiVersion>${muleMetadataModelVersion}</metadataModelApiVersion>
+
+        <!-- The tests/test-components artifacts is in the mule repo but as has the mule-modules-parent as parent
+         its version is not changed by the versions:set plugin -->
+        <muleTestComponentsVersion>4.4.1-SNAPSHOT</muleTestComponentsVersion>
+
+        <!-- Test Extensions -->
+
+        <!--Maven plugins versions-->
+        <dependency.plugin.version>3.1.2</dependency.plugin.version>
+        <deploy.plugin.version>2.8.2</deploy.plugin.version>
+        <assembly.plugin.version>3.3.0</assembly.plugin.version>
+        <jar.plugin.version>3.0.2</jar.plugin.version>
+        <jxr.plugin.version>2.5</jxr.plugin.version>
+        <project.info.reports.plugin.version>3.0.0</project.info.reports.plugin.version>
+        <rar.plugin.version>2.4</rar.plugin.version>
+        <release.plugin.version>2.5.3</release.plugin.version>
+        <resources.plugin.version>3.1.0</resources.plugin.version>
+        <site.plugin.version>3.8.2</site.plugin.version>
+        <source.plugin.version>3.1.0</source.plugin.version>
+        <war.plugin.version>3.2.0</war.plugin.version>
+        <shade.plugin.version>3.1.0</shade.plugin.version>
+        <build.helper.maven.plugin.version>3.0.0</build.helper.maven.plugin.version>
+        <maven.help.plugin.version>2.2</maven.help.plugin.version>
+        <antrun.plugin.version>1.8</antrun.plugin.version>
+        <install.plugin.version>2.5.2</install.plugin.version>
+        <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+        <javaFormatter.plugin.version>2.14.0</javaFormatter.plugin.version>
+        <license.maven.plugin.version>2.11</license.maven.plugin.version>
+        <gpg.plugin.version>1.6</gpg.plugin.version>
+        <gmavenPluginVersion>1.5</gmavenPluginVersion>
+        <javadocPluginVersion>3.2.0</javadocPluginVersion>
+        <mavenCompilerVersion>3.8.1</mavenCompilerVersion>
+        <eclipsePluginVersion>2.10</eclipsePluginVersion>
+        <maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+
+        <mule.module.maven.plugin.version>1.3.0-20220622</mule.module.maven.plugin.version>
+        <revapi-maven-plugin.version>0.9.5</revapi-maven-plugin.version>
+        <muleRevapiExtensionVersion>1.4.0-20220622</muleRevapiExtensionVersion>
+        <mule.extensions.maven.plugin.version>1.4.1</mule.extensions.maven.plugin.version>
+        <mule.app.plugins.maven.plugin.version>1.4.1</mule.app.plugins.maven.plugin.version>
+        <mule.jmh.elasticsearch.maven.plugin.version>1.0.0-SNAPSHOT</mule.jmh.elasticsearch.maven.plugin.version>
+        <maven.replacer.plugin>1.5.3</maven.replacer.plugin>
+
+        <powermockVersion>2.0.0</powermockVersion>
+        <allureReportVersion>2.8.1</allureReportVersion>
+        <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
+        <jacoco.version>0.8.6</jacoco.version>
+
+        <formatterConfigPath>formatter.xml</formatterConfigPath>
+        <formatterGoal>validate</formatterGoal>
+        <oldMuleArtifactVersion>4.4.0</oldMuleArtifactVersion>
+        
+        <surefire.args.base>-XX:+TieredCompilation -Dfile.encoding=UTF-8 -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjVersion}/aspectjweaver-${aspectjVersion}.jar -javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/${jacoco.version}/org.jacoco.agent-${jacoco.version}-runtime.jar=destfile='${session.executionRootDirectory}/target/jacoco.exec'</surefire.args.base>
+        <surefire.args>${surefire.args.base}</surefire.args>
+
+        <groovyVersion>3.0.7</groovyVersion>
+        <assembly.verifier.version>2.0.0</assembly.verifier.version>
+
+        <allureJunitVersion>2.8.1</allureJunitVersion>
+        <multithreadedtcVersion>1.01</multithreadedtcVersion>
+        <tikaVersion>1.24.1</tikaVersion>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <!-- More info: http://www.cs.umd.edu/projects/PL/multithreadedtc/overview.html  -->
+            <groupId>com.googlecode.multithreadedtc</groupId>
+            <artifactId>multithreadedtc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit4</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tika</groupId>
+                    <artifactId>tika-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mule</groupId>
+                <artifactId>mule-runtime-bom</artifactId>
+                <version>${muleBomVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <!-- More info: http://www.cs.umd.edu/projects/PL/multithreadedtc/overview.html  -->
+                <groupId>com.googlecode.multithreadedtc</groupId>
+                <artifactId>multithreadedtc</artifactId>
+                <version>${multithreadedtcVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit4</artifactId>
+                <version>${allureJunitVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tikaVersion}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+    <distributionManagement>
+        <downloadUrl>http://www.mulesoft.org/display/MULE/Download</downloadUrl>
+        <repository>
+            <id>mule-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>mule</id>
+            <name>Mule Repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mule-plugin</id>
+            <name>Mule Repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+
+        <!--
+            Specify versions of the plugins used in child poms here.
+            Do NOT put any configuration for plugins here. Global plugin
+            configuration should go into the <plugins> section.
+        -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${antrun.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${assembly.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${install.plugin.version}</version>
+                    <configuration>
+                        <skip>${skipInstalls}</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${javadocPluginVersion}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <doclint>none</doclint>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${checkstyle.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>net.revelc.code.formatter</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>${javaFormatter.plugin.version}</version>
+                    <configuration>
+                        <compilerCompliance>${javaVersion}</compilerCompliance>
+                        <compilerSource>${javaVersion}</compilerSource>
+                        <compilerTargetPlatform>${javaVersion}</compilerTargetPlatform>
+                        <configFile>${basedir}/${formatterConfigPath}</configFile>
+                        <configJsFile>${basedir}/${formatterConfigPath}</configJsFile>
+                        <aggregator>false</aggregator>
+                        <executionRoot>true</executionRoot>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>apply-format</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>${formatterGoal}</goal>
+                            </goals>
+                            <configuration>
+                                <skipFormatting>${skipVerifications}</skipFormatting>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${mavenCompilerVersion}</version>
+                    <configuration>
+                        <encoding>ISO-8859-1</encoding>
+                        <source>${javaVersion}</source>
+                        <target>${javaVersion}</target>
+                        <proc>none</proc>
+                        <parameters>true</parameters>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${dependency.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>analyze-dependencies-for-extension</id>
+                            <goals>
+                                <goal>analyze-only</goal>
+                            </goals>
+                            <phase>none</phase>
+                            <configuration>
+                                <failOnWarning>true</failOnWarning>
+                                <verbose>true</verbose>
+                                <ignoredUsedUndeclaredDependencies>
+                                    <!-- Mule dependencies are ignored -->
+                                    <ignoredUsedUndeclaredDependency>org.mule*</ignoredUsedUndeclaredDependency>
+                                    <!-- Testing dependencies are ignored -->
+                                    <ignoredUsedUndeclaredDependency>org.hamcrest</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>org.mockito</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>junit:junit</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>commons-logging:commons-logging</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>org.apache.ftpserver:ftpserver-core</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>io.qameta.allure</ignoredUsedUndeclaredDependency>
+
+                                    <!-- Logging related artifacts are exposed by the BOOTSTRAP ClassLoader -->
+                                    <ignoredUsedUndeclaredDependency>org.slf4j:slf4j-api</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>javax.inject:javax.inject</ignoredUsedUndeclaredDependency>
+                                    <ignoredUsedUndeclaredDependency>javax.mail:javax.mail-api</ignoredUsedUndeclaredDependency>
+                                </ignoredUsedUndeclaredDependencies>
+                                <ignoredUnusedDeclaredDependencies>
+                                    <!-- Don't need to worry about this -->
+                                    <ignoredUnusedDeclaredDependency>:::</ignoredUnusedDeclaredDependency>
+                                </ignoredUnusedDeclaredDependencies>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${deploy.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>${jxr.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${project.info.reports.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-rar-plugin</artifactId>
+                    <version>${rar.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${release.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>${maven.replacer.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${resources.plugin.version}</version>
+                    <configuration>
+                        <encoding>ISO-8859-1</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${shade.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${site.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${source.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <workingDirectory>${project.build.directory}</workingDirectory>
+                        <argLine>${surefire.args}</argLine>
+                        <trimStackTrace>false</trimStackTrace>
+                        <excludes>
+                            <!-- Surefire should be able to detect that classes are abstract but it seems it isn't -->
+                            <exclude>**/Abstract*.*</exclude>
+                            <!-- Our tests never start with Test* but we have a lot of test helpers that match -->
+                            <exclude>**/Test*.java</exclude>
+                            <!-- exclude inner classes -->
+                            <exclude>**/*$*</exclude>
+                        </excludes>
+                        <properties>
+                            <property>
+                                <name>listener</name>
+                                <value>io.qameta.allure.junit4.AllureJunit4</value>
+                            </property>
+                        </properties>
+                        <systemPropertyVariables>
+                            <!-- Just propagate this variable due to surefire will not do this when forked vm for tests -->
+                            <mule.freePortFinder.lockPath>${java.io.tmpdir}/mule/freePortFinder</mule.freePortFinder.lockPath>
+                            <maven.projectVersion>${project.version}</maven.projectVersion>
+                        </systemPropertyVariables>
+                        <systemProperties>
+                            <property>
+                                <name>allure.results.directory</name>
+                                <value>${project.build.directory}/allure-results</value>
+                            </property>
+                        </systemProperties>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectjVersion}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.jacoco</groupId>
+                            <artifactId>org.jacoco.agent</artifactId>
+                            <version>${jacoco.version}</version>
+                            <classifier>runtime</classifier>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${war.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.gmaven</groupId>
+                    <artifactId>gmaven-plugin</artifactId>
+                    <version>${gmavenPluginVersion}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.gmaven.runtime</groupId>
+                            <artifactId>gmaven-runtime-1.8</artifactId>
+                            <version>${gmavenPluginVersion}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build.helper.maven.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-help-plugin</artifactId>
+                    <version>${maven.help.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.mule.tools</groupId>
+                    <artifactId>mule-assembly-verifier</artifactId>
+                    <version>${assembly.verifier.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${license.maven.plugin.version}</version>
+                    <configuration>
+                        <skip>${skipVerifications}</skip>
+                        <header>com/mycila/maven/plugin/license/templates/CPAL.txt</header>
+                        <properties>
+                            <owner>MuleSoft, Inc</owner>
+                            <project.url>http://www.mulesoft.com</project.url>
+                        </properties>
+                        <excludes>
+                            <exclude>target/**</exclude>
+                            <exclude>**/.gitignore</exclude>
+                            <exclude>**/*.txt</exclude>
+                            <exclude>**/*.groovy</exclude>
+                            <exclude>**/*.sh</exclude>
+                            <exclude>**/*.bat</exclude>
+                            <exclude>**/*.ftl</exclude>
+                            <exclude>**/*.xml</exclude>
+                            <exclude>**/*.properties</exclude>
+                            <exclude>**/*.sample</exclude>
+                            <exclude>**/*.md</exclude>
+                            <exclude>**/*.xsl</exclude>
+                            <exclude>**/*.html</exclude>
+                            <exclude>**/*.css</exclude>
+                            <exclude>**/build-number.txt</exclude>
+
+                            <exclude>**/org/springframework/**</exclude>
+                            <exclude>**/HttpTransactionContext.java</exclude>
+                            <exclude>**/HttpConnection.java</exclude>
+                            <exclude>**/BndMojo.java</exclude>
+                            <exclude>**/BobberArchetype.java</exclude>
+                            <exclude>**/BobberArchetypeMojo.java</exclude>
+                            <exclude>**/DummySSLServerSocketFactory.java</exclude>
+                            <exclude>**/MultipartConfiguration.java</exclude>
+
+                            <exclude>**/ParamReader.java</exclude>
+                            <exclude>**/Part.java</exclude>
+                            <exclude>**/XMLStreamReaderToContentHandler.java</exclude>
+                            <exclude>**/__artifactId__IBean.java</exclude>
+                            <exclude>**/__artifactId__IBeanTestCase.java</exclude>
+                        </excludes>
+                        <includes>
+                            <include>**/*.java</include>
+                        </includes>
+                        <mapping>
+                            <java>SLASHSTAR_STYLE</java>
+                        </mapping>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.mule.runtime.plugins</groupId>
+                    <artifactId>mule-plugin-maven-plugin</artifactId>
+                    <version>${mule.app.plugins.maven.plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>io.qameta.allure</groupId>
+                    <artifactId>allure-maven</artifactId>
+                    <version>${allure.maven.plugin.version}</version>
+                    <configuration>
+                        <reportVersion>${allureReportVersion}</reportVersion>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.mule.tools.maven</groupId>
+                    <artifactId>mule-module-maven-plugin</artifactId>
+                    <version>${mule.module.maven.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.revapi</groupId>
+                    <artifactId>revapi-maven-plugin</artifactId>
+                    <version>${revapi-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>${maven.buildnumber.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                    <timestampFormat>{0,date,yyyy-MMM-dd HH:mm:ss}</timestampFormat>
+                    <shortRevisionLength>8</shortRevisionLength>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>[3.3.1,)</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <!--
+                 Needed for checkstyle to find the license header file from the classpath.
+                 CAVEAT: you cannot build the site without mule-buildtools present in
+                 your local repository.
+
+                 For plugin config see below in reporting section
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mule</groupId>
+                        <artifactId>mule-buildtools</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>${eclipsePluginVersion}</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <classpathContainers>
+                        <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/${vmtype}/${jdk8Name}
+                        </classpathContainer>
+                    </classpathContainers>
+                </configuration>
+            </plugin>
+
+            <!-- The maven-jar-plugin generates the MANIFEST.MF for all modules
+                where <packaging>jar</packaging> is used. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-test-jar</id>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipExportTests}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <!--
+                            Disabled for http://mule.mulesoft.org/jira/browse/MULE-1153
+                            and http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4408526
+                         -->
+                        <index>false</index>
+                        <!-- List dependencies in the MANIFEST.MF -->
+                        <manifest>
+                            <!-- Note that we do not generate a classpath into the manifest, since doing so
+                                 significantly slows down compilations that use the jar -->
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <!-- Custom Entries -->
+                        <manifestEntries>
+                            <!-- include repository revision from buildnumber plugin -->
+                            <Build-Revision>${buildNumber}</Build-Revision>
+                            <Build-Date>${timestamp}</Build-Date>
+                            <Dev-List-Email>${dev.list}</Dev-List-Email>
+                            <Supported-Jdks>[${javaVersion}.0,12)</Supported-Jdks>
+                            <Recommended-Jdks>[${javaVersion}.0_181,9),[11,12)</Recommended-Jdks>
+                            <More-Info>For more information go to ${productUrl}</More-Info>
+                            <Support>Get commercial support: ${project.organization.url}/support</Support>
+                            <Description>Mule Runtime and Integration Platform</Description>
+                            <License>CPAL v1.0 http://www.mulesoft.com/CPAL/</License>
+                            <Vendor-Url>${project.organization.url}</Vendor-Url>
+                            <Product-Url>${productUrl}</Product-Url>
+                            <Build-Date>${mvn.timestamp.yyyy-MM-dd-HH:mm:ss}</Build-Date>
+                            <Git-tags>${git.tags}</Git-tags>
+                            <Git-branch>${git.branch}</Git-branch>
+                            <Git-remote-origin-url>${git.remote.origin.url}</Git-remote-origin-url>
+                            <Git-commit-id>${git.commit.id}</Git-commit-id>
+                            <Git-commit-id-describe>${git.commit.id.describe}</Git-commit-id-describe>
+                            <Git-commit-time>${git.commit.time}</Git-commit-time>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+            </plugin>
+            <plugin>
+                <!-- Aggregate sources artifact must be explicitly required from the maven command -->
+                <!-- Attempting to generate it automatically by configuring the execution here will cause issues when adding new modules -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                            <goal>test-jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.4</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <useNativeGit>true</useNativeGit>
+                    <injectAllReactorProjects>true</injectAllReactorProjects>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>dependencies</report>
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${javadocPluginVersion}</version>
+                <reportSets>
+                    <reportSet>
+                        <id>aggregate</id>
+                        <inherited>false</inherited>
+                        <reports>
+                            <report>aggregate-no-fork</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+                <configuration>
+                    <minmemory>128m</minmemory>
+                    <maxmemory>512m</maxmemory>
+                    <charset>ISO-8859-1</charset>
+                    <encoding>ISO-8859-1</encoding>
+                    <source>${javaVersion}</source>
+                    <doclint>none</doclint>
+                    <!-- Link to the external online JavaDoc -->
+                    <links>
+                        <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                        <link>http://java.sun.com/j2ee/sdk_1.3/techdocs/api/</link>
+                        <link>http://jakarta.apache.org/commons/beanutils/commons-beanutils-1.9.4/docs/api/</link>
+                        <link>http://jakarta.apache.org/commons/collections/api-3.2/</link>
+                        <link>http://jakarta.apache.org/httpcomponents/httpclient-3.x/apidocs/</link>
+                        <link>http://jakarta.apache.org/commons/io/api-1.2/</link>
+                        <link>http://jakarta.apache.org/commons/lang/api-2.1/</link>
+                        <link>http://jakarta.apache.org/commons/pool/apidocs/</link>
+                        <link>http://logging.apache.org/log4j/2.x/log4j-api/apidocs/</link>
+                        <link>http://www.slf4j.org/api/</link>
+                        <link>http://junit.sourceforge.net/javadoc/</link>
+                    </links>
+                    <groups>
+                        <group>
+                            <title>Mule Core</title>
+                            <packages>org.mule.runtime.core.*</packages>
+                        </group>
+                        <group>
+                            <title>Modules (not part of the Mule core)</title>
+                            <packages>org.mule.runtime.module.*:org.mule.runtime.core.components.*</packages>
+                        </group>
+                        <group>
+                            <title>Testing Framework</title>
+                            <packages>org.mule.tck.*:org.mule.functional.*</packages>
+                        </group>
+                        <group>
+                            <title>Tools</title>
+                            <packages>org.mule.tools.*</packages>
+                        </group>
+                    </groups>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+    <profiles>
+        <profile>
+            <id>mac</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <vmtype>org.eclipse.jdt.internal.launching.macosx.MacOSXType</vmtype>
+            </properties>
+        </profile>
+        <profile>
+            <id>yourkit-agent</id>
+            <properties>
+                <!-- When using this profile, the location of the YourKit agent has to be provided with a vm argument -->
+                <!-- A typical agent location in OSX is like: -->
+                <!-- -Dyourkit.agent.path=/Applications/YourKit-Java-Profiler-2019.8.app/Contents/Resources/bin/mac/libyjpagent.dylib -->
+                <surefire.args>-agentpath:'${yourkit.agent.path}'=disablestacktelemetry,exceptions=disable,probe_disable=*,listen=all ${surefire.args.base}</surefire.args>
+            </properties>
+        </profile>
+		<profile>
+            <id>release</id>
+            <properties>
+                <skipVerifications>false</skipVerifications>
+                <skipInstalls>false</skipInstalls>
+                <skipGpg>false</skipGpg>
+                <skipNoSnapshotsEnforcerPluginRule>false</skipNoSnapshotsEnforcerPluginRule>
+            </properties>
+            <build>
+                <defaultGoal>deploy</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${gpg.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <skip>${skipGpg}</skip>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                            <excludes>
+                                                <exclude>org.mule.tests:test-components</exclude>
+                                            </excludes>
+                                        </requireReleaseDeps>
+                                        <requireReleaseVersion>
+                                            <message>No Snapshots Allowed in Project Version!</message>
+                                        </requireReleaseVersion>
+                                        <requirePluginVersions>
+                                            <message>Best Practice is to always define plugin versions!</message>
+                                            <unCheckedPluginList>
+                                                org.apache.maven.plugins:maven-clean-plugin
+                                            </unCheckedPluginList>
+                                        </requirePluginVersions>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release-dry-run</id>
+            <properties>
+                <skipNoSnapshotsEnforcerPluginRule>false</skipNoSnapshotsEnforcerPluginRule>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                            <excludes>
+                                                <exclude>org.mule.weave:*</exclude>
+                                                <exclude>org.mule.runtime:mule-dwb-api</exclude>
+                                                <exclude>org.mule.services:*</exclude>
+                                                <exclude>org.mule.tools.maven:mule-classloader-model</exclude>
+
+                                                <exclude>org.raml:raml-parser-2</exclude>
+                                                <exclude>org.raml:yagi</exclude>
+
+                                                <exclude>org.mule.tests:test-components</exclude>
+                                            </excludes>
+                                        </requireReleaseDeps>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>mule-module</id>
+            <activation>
+                <file>
+                    <exists>src/main/resources/META-INF/mule-module.properties</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.mule.tools.maven</groupId>
+                        <artifactId>mule-module-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <executions>
+                            <execution>
+                                <id>analyze</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>analyze</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+                                <phase>validate</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.revapi</groupId>
+                        <artifactId>revapi-maven-plugin</artifactId>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.mule.tools.maven</groupId>
+                                <artifactId>mule-revapi-extension</artifactId>
+                                <version>${muleRevapiExtensionVersion}</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <oldVersion>${oldMuleArtifactVersion}</oldVersion>
+                            <failOnUnresolvedArtifacts>true</failOnUnresolvedArtifacts>
+                            <failOnMissingConfigurationFiles>false</failOnMissingConfigurationFiles>
+                            <analysisConfiguration><![CDATA[
+                                {
+                                    "revapi" : {
+                                        "java" : {
+                                            "missing-classes" : {
+                                                "behavior" : "report"
+                                            }
+                                        },
+                                        "semver": {
+                                          "ignore": {
+                                            "enabled": true,
+                                            "versionIncreaseAllows" : {
+                                              "major" : "breaking",
+                                              "minor" : "nonBreaking",
+                                              "patch" : "equivalent"
+                                            }
+                                          }
+                                        }
+                                    }
+                                }
+                            ]]></analysisConfiguration>
+                            <analysisConfigurationFiles combine.children="append">
+                                <configurationFile>
+                                    <path>api-changes.json</path>
+                                    <roots>
+                                        <root>
+                                            ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                                        </root>
+                                    </roots>
+                                </configurationFile>
+                            </analysisConfigurationFiles>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>api-check</id>
+                                <goals><goal>check</goal></goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

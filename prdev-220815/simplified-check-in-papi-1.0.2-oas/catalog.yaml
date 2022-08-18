@@ -1,0 +1,7 @@
+#%Catalog Descriptor 1.0
+projects:
+  - main: api.json
+    assetId: check-in-papi
+    version: 1.0.0
+    apiVersion: v1
+    versionStrategy: majorIncrease

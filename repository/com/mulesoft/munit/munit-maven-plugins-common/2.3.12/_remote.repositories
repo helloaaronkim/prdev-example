@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 17 14:29:05 JST 2022
+munit-maven-plugins-common-2.3.12.jar>mulesoft-releases=
+munit-maven-plugins-common-2.3.12.pom>mulesoft-releases=

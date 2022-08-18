@@ -1,0 +1,10 @@
+api:  
+  # pom propertyとして定義された分については、ここでも使用可能
+  groupId: "${api.groupId}"
+  artifactId: "${api.artifactId}"
+  version: "${api.version}"
+  #\
+  spec: "resource::${api.groupId}:${api.artifactId}:${api.version}:oas:zip:api.json"
+  id: "18063961"
+  port: "8082"
+  majorVersion: "v1"

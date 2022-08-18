@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+jsr305-3.0.2.pom>=
+jsr305-3.0.2.jar>=
+jsr305-3.0.2.jar>central=
+jsr305-3.0.2.pom>central=

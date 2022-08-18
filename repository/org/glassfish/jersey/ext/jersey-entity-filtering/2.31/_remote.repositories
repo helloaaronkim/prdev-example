@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+jersey-entity-filtering-2.31.pom>=
+jersey-entity-filtering-2.31.jar>central=
+jersey-entity-filtering-2.31.jar>=
+jersey-entity-filtering-2.31.pom>central=

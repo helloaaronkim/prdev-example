@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mulesoft.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.4.0-20220622</version>
+        <relativePath></relativePath>
+    </parent>
+    <groupId>com.mulesoft.mule.distributions</groupId>
+    <artifactId>mule-ee-distributions</artifactId>
+    <version>4.4.0-20220622</version>
+    <packaging>pom</packaging>
+    <name>Mule Distributions</name>
+
+    <modules>
+        <module>bom</module>
+        <module>services-all</module>
+        <module>patches</module>
+        <module>embedded</module>
+        <module>mule-config-files</module>
+        <module>standalone</module>
+        <module>cumulative-patch</module>
+        <module>deployment-listener-plugin</module>
+        <module>tests</module>
+        <module>support-tools</module>
+        <module>container-descriptor-handler</module>
+    </modules>
+
+    <properties>
+        <assembly.plugin.version>3.3.0</assembly.plugin.version>
+        <mule.agent.version>2.4.30</mule.agent.version>
+        <agw.version>4.4.0-20220622</agw.version>
+
+        <muleHttpEeServiceVersion>1.7.7</muleHttpEeServiceVersion>
+        <muleOAuthEeServiceVersion>1.1.2</muleOAuthEeServiceVersion>
+        <muleBomVersion>4.4.0-20220622</muleBomVersion>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mule</groupId>
+                <artifactId>mule-runtime-bom</artifactId>
+                <version>${muleBomVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>release-dry-run</id>
+            <properties>
+                <skipNoSnapshotsEnforcerPluginRule>false</skipNoSnapshotsEnforcerPluginRule>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                            <excludes>
+                                                <exclude>com.mulesoft.mule.services:mule-service-http-ee</exclude>
+
+                                                <exclude>org.mule.modules:mule-module-cors-kernel</exclude>
+
+                                                <exclude>org.mule.weave:*</exclude>
+                                                <exclude>org.mule.services:mule-service-weave</exclude>
+                                                <exclude>com.mulesoft.services:mule-service-weave-ee</exclude>
+
+                                                <exclude>org.mule.tools.maven:mule-classloader-model</exclude>
+
+                                                <exclude>com.mulesoft.munit:*</exclude>
+
+                                                <exclude>com.mulesoft.anypoint:api-gateway-api</exclude>
+                                                <exclude>com.mulesoft.anypoint:mule-module-api-deployment</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-client</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-core</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-contract-service-api</exclude>
+                                                <exclude>com.mulesoft.anypoint:mule-module-policies</exclude>
+                                                <exclude>com.mulesoft.anypoint:mule-module-hdp</exclude>
+                                                <exclude>com.mulesoft.anypoint:mule-module-autodiscovery</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-contract-service</exclude>
+                                                <exclude>com.mulesoft.anypoint:mule-module-analytics-gw</exclude>
+                                                <exclude>com.mulesoft.anypoint:api-gateway-events-collector-service</exclude>
+                                                <exclude>com.mulesoft.mule.distributions:api-gateway-bom-impl</exclude>
+                                                <exclude>com.mulesoft.mule.distributions:api-gateway-bom-api</exclude>
+
+                                                <exclude>com.mulesoft.services:mule-service-weave-ee</exclude>
+                                            </excludes>
+                                        </requireReleaseDeps>
+                                        <requireReleaseVersion>
+                                            <message>No Snapshots Allowed in Project Version!</message>
+                                        </requireReleaseVersion>
+                                        <requirePluginVersions>
+                                            <message>Best Practice is to always define plugin versions!</message>
+                                            <unCheckedPluginList>
+                                                org.apache.maven.plugins:maven-clean-plugin,
+                                                org.apache.maven.plugins:maven-help-plugin
+                                            </unCheckedPluginList>
+                                        </requirePluginVersions>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

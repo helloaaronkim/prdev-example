@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:13:58 JST 2022
+ranking-api-template-1.0.0-preConditions-1660558401718.json>anypoint-exchange-v3=
+ranking-api-template-1.0.0-mule-application-template.jar>=
+ranking-api-template-1.0.0-status-1660558436074.json>anypoint-exchange-v3=
+ranking-api-template-1.0.0-status-1660558429785.json>anypoint-exchange-v3=
+ranking-api-template-1.0.0.pom>=
+ranking-api-template-1.0.0-status-1660558424284.json>anypoint-exchange-v3=

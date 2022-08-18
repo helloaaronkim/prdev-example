@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mulesoft.mule</groupId>
+    <artifactId>mule-debugger-commons</artifactId>
+    <name>Mule Debugger Commons</name>
+
+    <parent>
+        <groupId>com.mulesoft.mule</groupId>
+        <artifactId>mule-remote-debugger</artifactId>
+        <version>5.0.0</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <workingDirectory>${project.build.directory}</workingDirectory>
+                    <systemPropertyVariables>
+                        <weave.plugin>${org.mule.services:mule-service-weave:jar:mule-service}</weave.plugin>
+                        <workingDirectory>${project.build.directory}</workingDirectory>
+                    </systemPropertyVariables>
+                    <argLine>-Xmx2048m</argLine>
+                    <forkCount>0</forkCount>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mulesoft.mule.runtime.modules</groupId>
+            <artifactId>mule-module-batch-ee</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.jboss.spec.javax.rmi</groupId>
+  <artifactId>jboss-rmi-api_1.0_spec</artifactId>
+  <versioning>
+    <release>1.0.6.Final</release>
+    <versions>
+      <version>1.0.6.Final</version>
+    </versions>
+    <lastUpdated>20220815005404</lastUpdated>
+  </versioning>
+</metadata>

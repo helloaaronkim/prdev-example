@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:15 JST 2022
+api-annotations-1.0.1.jar>=
+api-annotations-1.0.1.pom>=
+api-annotations-1.0.1.pom>mulesoft-releases=

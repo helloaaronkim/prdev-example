@@ -1,0 +1,11 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Wed Aug 17 13:56:31 JST 2022
+@default-anypoint-exchange-f30b2eed-4add-4bf5-8ac7-ae69d4105433-https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660712189632
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660712190418
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660712191069
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact 27b94864-40fa-442c-bc8f-7c964e940277\:check-in-papi\:zip\:oas\:1.0.0 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: authentication failed for https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/27b94864-40fa-442c-bc8f-7c964e940277/check-in-papi/1.0.0/check-in-papi-1.0.0-oas.zip, status\: 401 Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660712190651
+https\://repository.mulesoft.org/releases/.lastUpdated=1660712189810

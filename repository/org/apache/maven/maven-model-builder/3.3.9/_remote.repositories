@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+maven-model-builder-3.3.9.jar>=
+maven-model-builder-3.3.9.pom>=
+maven-model-builder-3.3.9.pom>central=

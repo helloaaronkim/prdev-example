@@ -1,0 +1,305 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mule.runtime.plugins</groupId>
+        <artifactId>mule-plugins-maven-plugin-parent</artifactId>
+        <version>1.5.0-20220622</version>
+    </parent>
+
+    <artifactId>mule-extensions-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+
+    <name>Mule Extensions Maven Plugin</name>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+        <java.xml.bind.version>2.3.1-MULE-001</java.xml.bind.version>
+        <javax.activation.version>1.1.1</javax.activation.version>
+        <velocity.version>1.7</velocity.version>
+        <velocity.tools.generic.version>3.0</velocity.tools.generic.version>
+        <jruby.version>1.7.17</jruby.version>
+        <asciidoctor.version>1.5.2</asciidoctor.version>
+        <junit.version>4.12</junit.version>
+        <mockito.version>2.23.4</mockito.version>
+        <powermock.version>2.0.0</powermock.version>
+        <zt.zip.version>1.14</zt.zip.version>
+
+        <slf4jVersion>1.7.26</slf4jVersion>
+
+        <xerces2Version>2.11.3</xerces2Version>
+        <xmlApisVersion>1.4.01</xmlApisVersion>
+
+        <mule.maven.client.version>1.7.0-20220622</mule.maven.client.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mule.runtime.plugins</groupId>
+            <artifactId>mule-packager-plugins-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mule</groupId>
+            <artifactId>mule-maven-client-api</artifactId>
+            <version>${mule.maven.client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mule</groupId>
+            <artifactId>mule-maven-client-impl</artifactId>
+            <version>${mule.maven.client.version}</version>
+        </dependency>
+
+        <!-- Documentation -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity.tools</groupId>
+            <artifactId>velocity-tools-generic</artifactId>
+            <version>${velocity.tools.generic.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>cglib</artifactId>
+                    <groupId>cglib</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+            <version>${jruby.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj</artifactId>
+            <version>${asciidoctor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zeroturnaround</groupId>
+            <artifactId>zt-zip</artifactId>
+            <version>${zt.zip.version}</version>
+        </dependency>
+
+        <!-- Mule -->
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-extensions-api</artifactId>
+            <version>${mule.extensions.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-extensions-api-persistence</artifactId>
+            <version>${mule.extensions.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-module-extensions-spring-support</artifactId>
+            <version>${mule.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-module-extensions-xml-support</artifactId>
+            <version>${mule.version}</version>
+        </dependency>
+
+        <!-- XML Parsing -->
+        <dependency>
+            <groupId>org.mule.apache</groupId>
+            <artifactId>xerces2-xsd11</artifactId>
+            <version>${xerces2Version}</version>
+        </dependency>
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>${xmlApisVersion}</version>
+        </dependency>
+
+        <!-- Has to go first in order to prevent issue https://github.com/eclipse-ee4j/jersey/issues/3618 as javassist also comes from Mule -->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.27.0-GA</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-module-deployment-model-impl</artifactId>
+            <version>${mule.version}</version>
+        </dependency>
+
+        <!-- Java EE -->
+        <dependency>
+            <groupId>org.mule.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>${java.xml.bind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${javax.activation.version}</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-core</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-all</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.tests</groupId>
+            <artifactId>mule-tests-unit</artifactId>
+            <version>${mule.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>uber</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>uber</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.2.4</version>
+                        <configuration>
+                            <artifactSet>
+                              <excludes>
+                                  <exclude>org.apache.maven:*</exclude>
+                                  <exclude>org.apache.maven.plugin-tools:*</exclude>
+                                  <exclude>org.slf4j:slf4j-api:*</exclude>
+                                  <exclude>org.mule.apache:xerces2-xsd11:*</exclude>
+                                  <exclude>xml-apis:*</exclude>
+                                  <exclude>stax:*</exclude>
+                              </excludes>
+                            </artifactSet>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>integration</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!muleExtensionsMavenPluginIntegration</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-invoker-plugin</artifactId>
+                        <version>${maven.invoker.plugin.version}</version>
+                        <configuration>
+                            <debug>${debug}</debug>
+                            <streamLogs>${debug}</streamLogs>
+                            <showErrors>${debug}</showErrors>
+                            <failIfNoProjects>true</failIfNoProjects>
+                            <projectsDirectory>src/it</projectsDirectory>
+                            <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                            <postBuildHookScript>verify</postBuildHookScript>
+                            <scriptVariables>
+                                <pluginVersion>${project.version}</pluginVersion>
+                                <muleVersion>${mule.version}</muleVersion>
+                            </scriptVariables>
+                            <addTestClassPath>true</addTestClassPath>
+                            <mavenOpts>${mavenOpts}</mavenOpts>
+                            <invokerPropertiesFile>invoker.properties</invokerPropertiesFile>
+                            <properties>
+                                <mule.version>${mule.version}</mule.version>
+                                <mule.extensions.api.version>${mule.extensions.api.version}</mule.extensions.api.version>
+                            </properties>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>install</goal>
+                            </goals>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>integration-test</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>integration-test-dependent</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <projectsDirectory>src/it-dependent</projectsDirectory>
+                                    <cloneProjectsTo>${project.build.directory}/it-dependent</cloneProjectsTo>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

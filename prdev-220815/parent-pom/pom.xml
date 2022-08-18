@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>f30b2eed-4add-4bf5-8ac7-ae69d4105433</groupId>
+    <artifactId>solutions-bom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../bom/pom.xml</relativePath>
+  </parent>
+
+  <groupId>f30b2eed-4add-4bf5-8ac7-ae69d4105433</groupId>
+  <artifactId>solutions-parent-pom</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>solutions-parent-pom</name>
+
+  <properties>
+    <!-- Not explicitly used but needed for deployment to Exchange, otherwise Exchange cannot determine the asset type -->
+    <type>custom</type>
+    <!-- for automated deployments -->
+    <deployment.env>set with -Ddeployment.env=...</deployment.env>
+    <!-- students: change to your own prefix: -->
+    <deployment.prefix>prdev-220815-</deployment.prefix>
+    <deployment.suffix>-${deployment.env}</deployment.suffix>
+    <deployment.name>${deployment.prefix}${project.artifactId}${deployment.suffix}</deployment.name>
+    <!-- requires AP environments to have the same name as the env property value in Mule apps (which determines the property files to load) -->
+    <ap.environment>${deployment.env}</ap.environment>
+    <ap.ca.client_id>set with -Dap.ca.client_id=...</ap.ca.client_id>
+    <ap.ca.client_secret>set with -Dap.ca.client_secret=...</ap.ca.client_secret>
+    <!-- set encrypt.key for decrypting secure (encryped) properties files (but don't set it here!) -->
+    <!-- For using Visualizer -->
+    <api.layer.eapi>Experience</api.layer.eapi>
+    <api.layer.papi>Process</api.layer.papi>
+    <api.layer.sapi>System</api.layer.sapi>
+    <api.layer.backend>Backend</api.layer.backend>
+    <api.layer.none>None</api.layer.none>    
+  </properties>
+
+  <!-- The following is for excluding redundancy -->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
+    <!-- pluginManagement : 상속해서 사용 가능 -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <configuration>
+            <nonFilteredFileExtensions>
+              <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+              <nonFilteredFileExtension>crt</nonFilteredFileExtension>
+              <nonFilteredFileExtension>pem</nonFilteredFileExtension>
+            </nonFilteredFileExtensions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.mule.tools.maven</groupId>
+          <artifactId>mule-maven-plugin</artifactId>
+          <extensions>true</extensions>
+          <configuration>
+            <cloudHubDeployment>
+              <businessGroup />
+              <environment>${ap.environment}</environment>
+              <region>us-east-2</region>
+              <muleVersion>${app.runtime.semver}</muleVersion>
+              <applyLatestRuntimePatch>true</applyLatestRuntimePatch>
+              <workers>1</workers>
+              <workerType>MICRO</workerType>
+              <objectStoreV2>true</objectStoreV2>
+              <!-- students: change to your own prefix: -->
+              <applicationName>${deployment.name}</applicationName>
+              <deploymentTimeout>600000</deploymentTimeout>
+              <connectedAppClientId>${ap.ca.client_id}</connectedAppClientId>
+              <connectedAppClientSecret>${ap.ca.client_secret}</connectedAppClientSecret>
+              <connectedAppGrantType>client_credentials</connectedAppGrantType>
+              <properties>
+                <anypoint.platform.client_id>${ap.client_id}</anypoint.platform.client_id>
+                <anypoint.platform.client_secret>${ap.client_secret}</anypoint.platform.client_secret>
+                <env>${deployment.env}</env>
+                <encrypt.key>${encrypt.key}</encrypt.key>
+                <!-- For using Visualizer -->
+                <anypoint.platform.config.analytics.agent.enabled>true</anypoint.platform.config.analytics.agent.enabled>
+                <anypoint.platform.visualizer.displayName>${project.artifactId}</anypoint.platform.visualizer.displayName>
+                <anypoint.platform.visualizer.layer>${api.layer}</anypoint.platform.visualizer.layer>
+              </properties>
+            </cloudHubDeployment>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.mulesoft.munit.tools</groupId>
+          <artifactId>munit-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>test</goal>
+                <goal>coverage-report</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <runtimeVersion>${app.runtime}</runtimeVersion>
+            <runtimeProduct>MULE_EE</runtimeProduct>
+            <environmentVariables><!-- this implies that all tests run in the same Maven build must use the same encrypt.key -->
+              <encrypt.key>${encrypt.key}</encrypt.key>
+            </environmentVariables>
+            <coverage>
+              <runCoverage>true</runCoverage>
+              <formats>
+                <format>console</format>
+                <format>html</format>
+              </formats>
+            </coverage>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+jakarta.mail-1.6.3.pom>=
+jakarta.mail-1.6.3.pom>central=
+jakarta.mail-1.6.3.jar>=
+jakarta.mail-1.6.3.jar>central=

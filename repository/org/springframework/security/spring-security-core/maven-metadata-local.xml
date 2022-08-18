@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.springframework.security</groupId>
+  <artifactId>spring-security-core</artifactId>
+  <versioning>
+    <release>5.1.5.RELEASE</release>
+    <versions>
+      <version>5.1.5.RELEASE</version>
+    </versions>
+    <lastUpdated>20220815102012</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:03 JST 2022
+mule-apikit-module-1.6.1.pom>anypoint-exchange-v3-student-deployment=
+mule-apikit-module-1.6.1-mule-plugin.jar>=
+mule-apikit-module-1.6.1-mule-plugin.jar>anypoint-exchange-v3-student-deployment=
+mule-apikit-module-1.6.1.pom>=

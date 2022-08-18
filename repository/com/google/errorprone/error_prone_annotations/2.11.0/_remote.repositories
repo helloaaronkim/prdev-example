@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+error_prone_annotations-2.11.0.jar>=
+error_prone_annotations-2.11.0.pom>=
+error_prone_annotations-2.11.0.pom>central=
+error_prone_annotations-2.11.0.jar>central=

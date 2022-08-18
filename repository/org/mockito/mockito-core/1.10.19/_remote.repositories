@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:55 JST 2022
+mockito-core-1.10.19.jar>central=
+mockito-core-1.10.19.pom>=
+mockito-core-1.10.19.jar>=
+mockito-core-1.10.19.pom>central=

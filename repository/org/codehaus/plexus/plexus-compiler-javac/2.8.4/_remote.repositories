@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+plexus-compiler-javac-2.8.4.jar>=
+plexus-compiler-javac-2.8.4.pom>=
+plexus-compiler-javac-2.8.4.jar>central=
+plexus-compiler-javac-2.8.4.pom>central=

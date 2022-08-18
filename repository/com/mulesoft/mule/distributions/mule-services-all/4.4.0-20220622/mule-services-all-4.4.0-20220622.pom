@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mulesoft.mule.distributions</groupId>
+        <artifactId>mule-ee-distributions</artifactId>
+        <version>4.4.0-20220622</version>
+    </parent>
+    
+    <artifactId>mule-services-all</artifactId>
+    <packaging>pom</packaging>
+    <name>All Mule Enterprise Services</name>
+    <description>
+        This is a meta module that allows easy referencing of all enterprise services.
+        This is needed in our various distributions we publish.
+    </description>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mule.distributions</groupId>
+            <artifactId>mule-services-all</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-http</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-weave</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-oauth</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.mule.services</groupId>
+            <artifactId>mule-service-http-ee</artifactId>
+            <version>${muleHttpEeServiceVersion}</version>
+            <classifier>mule-service</classifier>
+            <exclusions>
+                <!-- Runtime Dependencies-->
+                <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-http</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.mule.services</groupId>
+            <artifactId>mule-service-oauth-ee</artifactId>
+            <version>${muleOAuthEeServiceVersion}</version>
+            <classifier>mule-service</classifier>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-oauth</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.services</groupId>
+            <artifactId>mule-service-weave-ee</artifactId>
+            <classifier>mule-service</classifier>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.weave</groupId>
+                    <artifactId>flatfile-module</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.weave</groupId>
+                    <artifactId>excel-module</artifactId>
+                </exclusion>
+               <exclusion>
+                    <groupId>org.mule.services</groupId>
+                    <artifactId>mule-service-weave</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.weave</groupId>
+                    <artifactId>telemetry-service</artifactId>
+                </exclusion>
+             </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

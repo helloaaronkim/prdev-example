@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+byte-buddy-1.10.7.jar>central=
+byte-buddy-1.10.7.pom>central=
+byte-buddy-1.10.7.pom>=
+byte-buddy-1.10.7.jar>=

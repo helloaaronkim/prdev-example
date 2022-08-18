@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:58 JST 2022
+disruptor-3.3.7.pom>=
+disruptor-3.3.7.jar>=

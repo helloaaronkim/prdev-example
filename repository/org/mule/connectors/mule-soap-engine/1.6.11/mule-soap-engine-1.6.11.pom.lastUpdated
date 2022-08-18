@@ -1,0 +1,12 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:51:12 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524671934
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524671804
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.mule.connectors\:mule-soap-engine\:pom\:1.6.11 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/mule/connectors/mule-soap-engine/1.6.11/mule-soap-engine-1.6.11.pom. Error code 401, Unauthorized
+https\://repository.mulesoft.org/nexus/content/repositories/public/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/public/.lastUpdated=1660524672942
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524671443
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524671626

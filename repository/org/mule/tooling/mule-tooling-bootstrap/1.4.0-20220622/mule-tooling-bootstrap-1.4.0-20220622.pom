@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.mule.tooling</groupId>
+        <artifactId>mule-tooling-api-parent</artifactId>
+        <version>1.4.0-20220622</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mule-tooling-bootstrap</artifactId>
+    <name>Mule Tooling API :: Bootstrap</name>
+    <description>Bootstrap for Mule Tooling</description>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.mule.tooling</groupId>
+            <artifactId>mule-tooling-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mule.tooling</groupId>
+            <artifactId>mule-tooling-concurrent-local-repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Just need embedded code for JDK Only ClassLoader implementation -->
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-embedded-api</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Adding commons-lang3 that is needed by embedded API -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+</project>

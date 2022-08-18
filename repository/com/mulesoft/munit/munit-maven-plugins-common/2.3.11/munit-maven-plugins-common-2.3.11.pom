@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>munit-maven-tools</artifactId>
+        <groupId>com.mulesoft.munit</groupId>
+        <version>2.3.11</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>munit-maven-plugins-common</artifactId>
+    <name>MUnit :: Maven Plugins Common</name>
+
+    <properties>
+        <xstream.version>1.4.18</xstream.version>
+        <mule.maven.client.impl.version>1.5.1</mule.maven.client.impl.version>
+
+        <licensePath>../../LICENSE_HEADER.txt</licensePath>
+        <formatterConfigPath>../../formatter.xml</formatterConfigPath>
+        <findbugsExcludePath>../../findbugs-exclude.xml</findbugsExcludePath>
+
+        <coverageLineLimit>0.45</coverageLineLimit>
+        <coverageBranchLimit>0.38</coverageBranchLimit>
+        <runtime.discovery.version>2.0.0</runtime.discovery.version>
+    </properties>
+
+    <dependencies>
+        <!-- Mule Dependencies -->
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>runtime-discovery-api</artifactId>
+            <version>${runtime.discovery.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>runtime-discovery-core</artifactId>
+            <version>${runtime.discovery.version}</version>
+        </dependency>
+
+        <!-- MUnit Dependencies -->
+        <dependency>
+            <groupId>com.mulesoft.munit</groupId>
+            <artifactId>munit-remote</artifactId>
+            <version>${project.version}</version>
+            <classifier>jar-with-dependencies</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>${xstream.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule</groupId>
+            <artifactId>mule-maven-client-impl</artifactId>
+            <version>${mule.maven.client.impl.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

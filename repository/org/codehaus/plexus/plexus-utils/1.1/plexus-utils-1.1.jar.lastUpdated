@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Aug 16 12:33:44 JST 2022
+https\://repository.mulesoft.org/releases/.lastUpdated=1660620823119
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.codehaus.plexus\:plexus-utils\:jar\:1.1 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: authentication failed for https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.jar, status\: 401 Unauthorized
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660620824083
+https\://repository.mulesoft.org/releases/.error=
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660620823299

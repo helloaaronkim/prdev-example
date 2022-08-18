@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:12 JST 2022
+reactor-core-3.2.22.RELEASE.jar>central=
+reactor-core-3.2.22.RELEASE.jar>=
+reactor-core-3.2.22.RELEASE.pom>=
+reactor-core-3.2.22.RELEASE.pom>central=

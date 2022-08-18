@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:51:41 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524701667
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524701393
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact net.sf.jopt-simple\:jopt-simple\:pom\:5.0.4 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.pom. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524701040
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524701217

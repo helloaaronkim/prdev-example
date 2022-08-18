@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mulesoft.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.4.0-20220622</version>
+    </parent>
+    <groupId>com.mulesoft.mule.runtime.modules</groupId>
+    <artifactId>mule-modules</artifactId>
+    <packaging>pom</packaging>
+    <name>Mule Modules</name>
+    <description>Modules which extend the Mule Core but do not qualify as Transports</description>
+
+    <properties>
+        <formatterConfigPath>../formatter.xml</formatterConfigPath>
+    </properties>
+
+    <modules>
+        <module>all-modules</module>
+        <module>batch</module>
+        <module>boot</module>
+        <module>bti</module>
+        <module>cache</module>
+        <module>cluster</module>
+        <module>http-policy</module>
+        <module>kryo-serializer</module>
+        <module>license-impl-ee</module>
+        <module>plugin</module>
+        <module>spring-config</module>
+        <module>tracking</module>
+        <module>xa-tx</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <configuration>
+                    <aspectLibraries>
+                        <aspectLibrary>
+                            <groupId>com.mulesoft.mule.runtime</groupId>
+                            <artifactId>mule-core-ee</artifactId>
+                        </aspectLibrary>
+                    </aspectLibraries>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.sun</groupId>
+                        <artifactId>tools</artifactId>
+                        <version>${java.version}</version>
+                        <scope>system</scope>
+                        <systemPath>${project.basedir}/pom.xml</systemPath>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

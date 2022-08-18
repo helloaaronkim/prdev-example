@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+plexus-build-api-0.0.7.jar>=
+plexus-build-api-0.0.7.pom>central=
+plexus-build-api-0.0.7.jar>central=
+plexus-build-api-0.0.7.pom>=

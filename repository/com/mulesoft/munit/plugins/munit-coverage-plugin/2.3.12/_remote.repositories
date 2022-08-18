@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Wed Aug 17 14:33:42 JST 2022
+munit-coverage-plugin-2.3.12.jar>mulesoft-releases=
+munit-coverage-plugin-2.3.12.pom>mulesoft-releases=
+munit-coverage-plugin-2.3.12-mule-server-plugin.jar>mulesoft-public=

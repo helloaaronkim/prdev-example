@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.sun.xml.ws</groupId>
+  <artifactId>policy</artifactId>
+  <versioning>
+    <release>2.7.6</release>
+    <versions>
+      <version>2.7.6</version>
+    </versions>
+    <lastUpdated>20220815005404</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:58 JST 2022
+scala-common_2.12-1.0.83.pom>=
+scala-common_2.12-1.0.83.jar>=
+scala-common_2.12-1.0.83.pom>mulesoft-releases=
+scala-common_2.12-1.0.83.jar>mulesoft-releases=

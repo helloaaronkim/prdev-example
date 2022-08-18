@@ -1,0 +1,10 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:51:44 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524704082
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524703952
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact a63e6d25-8aaf-4512-b36d-d91b90a55c4a\:check-in-papi\:pom\:1.1.1 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/a63e6d25-8aaf-4512-b36d-d91b90a55c4a/check-in-papi/1.1.1/check-in-papi-1.1.1.pom. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=Could not transfer artifact a63e6d25-8aaf-4512-b36d-d91b90a55c4a\:check-in-papi\:pom\:1.1.1 from/to anypoint-exchange-v3-student-deployment (https\://maven.anypoint.mulesoft.com/api/v3/maven)\: Access denied to https\://maven.anypoint.mulesoft.com/api/v3/maven/a63e6d25-8aaf-4512-b36d-d91b90a55c4a/check-in-papi/1.1.1/check-in-papi-1.1.1.pom. Error code 401, Unauthorized
+@default-anypoint-exchange-v3-student-deployment-https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524703555
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524703776

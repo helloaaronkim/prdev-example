@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mule.edi</groupId>
+  <artifactId>edi</artifactId>
+  <version>2.3.13-CONN-9598</version>
+  <packaging>pom</packaging>
+  <name>Mule 4 EDI-Parser Support</name>
+
+  <properties>
+    <junit.version>4.12</junit.version>
+    <jdk.version>1.8</jdk.version>
+    <base.scala.version>2.12</base.scala.version>
+    <scala.version>${base.scala.version}.10</scala.version>
+    <spire.version>0.14.1</spire.version>
+    <scala.maven.version>4.3.0</scala.maven.version>
+    <snakeyaml.version>1.26</snakeyaml.version>
+    <snakeyaml.version.shade>v1_26</snakeyaml.version.shade>
+    <scalatest.version>3.0.1</scalatest.version>
+    <slf4j.version>1.7.30</slf4j.version>
+    <commonsIoVersion>1.3.2</commonsIoVersion>
+    <site.plugin.version>3.8.2</site.plugin.version>
+    <surefire.plugin.version>2.22.2</surefire.plugin.version>
+    <scalatest.plugin.version>2.0.0</scalatest.plugin.version>
+    <scoverage.plugin.version>1.4.1</scoverage.plugin.version>
+    <cobertura.maven.plugin.version>2.7</cobertura.maven.plugin.version>
+    <project-info-reports.plugin.version>3.0.0</project-info-reports.plugin.version>
+  </properties>
+
+  <modules>
+    <module>ltm</module>
+    <module>parser</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.0.2</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${site.plugin.version}</version>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+      </plugin>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${scala.maven.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>add-source</goal>
+                <goal>compile</goal>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>mule-ci-releases</id>
+      <name>Mule EE Releases Repository</name>
+      <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+    </repository>
+    <repository>
+      <id>mule-ee-snapshots</id>
+      <name>Mule EE Snapshots Repository</name>
+      <layout>default</layout>
+      <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>mule-ee-releases</id>
+      <name>MuleEE Releases Repository</name>
+      <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>mule-ee-snapshots</id>
+      <name>MuleEE Snapshots Repository</name>
+      <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+      <uniqueVersion>false</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <scm>
+    <connection>scm:git:git@github.com:mulesoft/mule4-edi-parser.git</connection>
+    <developerConnection>scm:git:git@github.com:mulesoft/mule4-edi-parser.git</developerConnection>
+    <url>https://github.com/mulesoft/mule4-edi-parser.git</url>
+    <tag>HEAD</tag>
+  </scm>
+  
+</project>

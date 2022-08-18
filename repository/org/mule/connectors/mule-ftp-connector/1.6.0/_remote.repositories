@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+mule-ftp-connector-1.6.0.pom>=
+mule-ftp-connector-1.6.0-mule-plugin.jar>=

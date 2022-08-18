@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+txw2-2.3.1-MULE-001.jar>=
+txw2-2.3.1-MULE-001.pom>=
+txw2-2.3.1-MULE-001.jar>mulesoft-releases=
+txw2-2.3.1-MULE-001.pom>mulesoft-releases=

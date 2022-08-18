@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+annotations-3.0.0.pom>=
+annotations-3.0.0.jar>central=
+annotations-3.0.0.pom>central=
+annotations-3.0.0.jar>=

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mulesoft.anypoint</groupId>
+        <artifactId>api-gateway-parent</artifactId>
+        <version>4.1.1</version>
+    </parent>
+
+    <artifactId>api-gateway-backoff</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>jar</packaging>
+    <name>API Gateway Backoff</name>
+
+    <properties>
+        <skipExportTests>false</skipExportTests>
+        <formatterConfigPath>formatter.xml</formatterConfigPath>
+        <tita.unit.version>4.0.1</tita.unit.version>
+        <tita.reflection.unit.version>2.9.0</tita.reflection.unit.version>
+        <currentYear>2021</currentYear>
+    </properties>
+
+    <dependencies>
+
+        <!--API Gateway dependencies-->
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>api-gateway-api</artifactId>
+            <version>${apiGatewayApiVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--Mule dependencies-->
+
+        <dependency>
+            <groupId>org.mule.runtime</groupId>
+            <artifactId>mule-module-deployment</artifactId>
+            <version>${muleVersion}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <!-- Excluding reboot module as it is not present in EE distribution and some classes clash with classes
+                 from boot-ee module  -->
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-module-reboot</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--Test dependencies-->
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>tita-unit</artifactId>
+            <version>${tita.unit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>tita-reflection-unit</artifactId>
+            <version>${tita.reflection.unit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <!--
+            This repository definition is redundant as it's already present in the
+            parent pom.
+
+            However, when building the Enterprise modules with an empty local repository
+            for the first time, the build *has* to know where to get its parent from and
+            there's no way around this repo definition.
+        -->
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mule-ee-snapshots</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>3.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.mulesoft.license</groupId>
+                        <artifactId>license</artifactId>
+                        <version>1.0.3</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <header>LICENSE_HEADER.txt</header>
+                    <properties>
+                        <year>${currentYear}</year>
+                    </properties>
+                    <excludes>
+                        <exclude>target/**</exclude>
+                        <exclude>**/.gitignore</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/*.groovy</exclude>
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.bat</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.md</exclude>
+                        <exclude>**/*.xsl</exclude>
+                        <exclude>**/*.html</exclude>
+                        <exclude>**/build-number.txt</exclude>
+                    </excludes>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                    <mapping>
+                        <java>SLASHSTAR_STYLE</java>
+                    </mapping>
+                    <strictCheck>true</strictCheck>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

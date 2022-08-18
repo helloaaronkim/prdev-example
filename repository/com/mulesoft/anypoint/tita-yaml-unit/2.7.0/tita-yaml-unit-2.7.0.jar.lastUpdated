@@ -1,0 +1,10 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:38 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524818634
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524818052
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.mulesoft.anypoint\:tita-yaml-unit\:jar\:2.7.0 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/mulesoft/anypoint/tita-yaml-unit/2.7.0/tita-yaml-unit-2.7.0.jar. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524816171
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524817096

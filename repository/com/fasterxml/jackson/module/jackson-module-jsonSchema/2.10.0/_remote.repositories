@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+jackson-module-jsonSchema-2.10.0.pom>=
+jackson-module-jsonSchema-2.10.0.jar>=
+jackson-module-jsonSchema-2.10.0.jar>central=
+jackson-module-jsonSchema-2.10.0.pom>central=

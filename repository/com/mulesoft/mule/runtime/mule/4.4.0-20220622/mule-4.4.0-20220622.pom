@@ -1,0 +1,539 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!-- Version -->
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.4.0-20220622</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.mulesoft.mule.runtime</groupId>
+    <artifactId>mule</artifactId>
+    <version>4.4.0-20220622</version>
+    <packaging>pom</packaging>
+
+    <!-- Organization -->
+    <organization>
+        <name>MuleSoft, Inc.</name>
+        <url>https://www.mulesoft.com</url>
+    </organization>
+
+    <!-- Project -->
+    <name>Mule Runtime - Enterprise Edition</name>
+
+    <modules>
+        <module>runtime-extension-model</module>
+        <module>core</module>
+        <module>docs</module>
+        <module>modules</module>
+        <module>tests</module>
+    </modules>
+
+
+    <description>
+        Mule is the runtime engine of Anypoint™ Platform. It is the industry’s only unified platform that combines data and application integration across legacy systems, SaaS applications, and APIs with hybrid deployment options for maximum flexibility.
+    </description>
+    <url>https://www.mulesoft.com</url>
+    <inceptionYear>2006</inceptionYear>
+    <issueManagement>
+        <system>jira</system>
+        <url>https://www.mulesoft.org/jira/projects/EE/issues</url>
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>MSA</name>
+            <url>https://www.mulesoft.com/</url>
+        </license>
+    </licenses>
+
+    <!-- Build -->
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/mule-ee.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule-ee.git</developerConnection>
+        <url>https://github.com/mulesoft/mule-ee</url>
+    </scm>
+
+    <properties>
+        <productUrl>https://www.mulesoft.com/platform/soa/mule-esb-enterprise</productUrl>
+        <weblogic9version>9.2.3.0</weblogic9version>
+        <hazelcastVersion>3.12.11</hazelcastVersion>
+        <hawtbufVersion>1.1</hawtbufVersion>
+        <hamcrestPathVersion>1.0.1</hamcrestPathVersion>
+        <licmVersion>2.1.7</licmVersion>
+        <apacheHttpMimeVersion>4.5.13</apacheHttpMimeVersion>
+        <apacheHttpFluentVersion>4.5.13</apacheHttpFluentVersion>
+        <bitronixTMVersion>2.1.16</bitronixTMVersion>
+        <wrapperVersion>3.5.45</wrapperVersion>
+        <oracleDriverVersion>12.2.0.1</oracleDriverVersion>
+        <postgresDriverVersion>9.4.1208</postgresDriverVersion>
+        <msSqlServerDriverVersion>4.0</msSqlServerDriverVersion>
+        <db2DriverVersion>3.63.123</db2DriverVersion>
+        <ehCacheVersion>2.5.1</ehCacheVersion>
+
+        <aspectj.maven.plugin.version>1.11</aspectj.maven.plugin.version>
+
+        <mulesoftLicenseVersion>1.0.3</mulesoftLicenseVersion>
+        <licensePath>LICENSE_HEADER_80.txt</licensePath>
+        <licenseYear>2021</licenseYear>
+        
+        <muleHttpEeServiceVersion>1.7.7</muleHttpEeServiceVersion>
+        <muleSpringModuleTestVersion>1.4.0-SNAPSHOT</muleSpringModuleTestVersion>
+
+        <smartConnectorUsingCoreVersion>${project.version}</smartConnectorUsingCoreVersion>
+        <smartConnectorUsingScriptingVersion>4.2.1</smartConnectorUsingScriptingVersion>
+
+        <munitExtensionsMavenPlugin>1.1.1</munitExtensionsMavenPlugin>
+
+        <muleDependenciesVersion>1.0.18</muleDependenciesVersion>
+    </properties>
+
+    <build>
+        <plugins>
+            <!--
+                The bulk of the config of the jar plugin is inherited from the parent
+                POM. We need to override the license, however ...
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <License>MSA v1.0 http://www.mulesoft.com/</License>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${site.plugin.version}</version>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.mulesoft.munit</groupId>
+                    <artifactId>munit-extensions-maven-plugin</artifactId>
+                    <version>${munitExtensionsMavenPlugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>${aspectj.maven.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <complianceLevel>1.8</complianceLevel>
+                        <showWeaveInfo>true</showWeaveInfo>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjrt</artifactId>
+                            <version>${aspectjVersion}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjtools</artifactId>
+                            <version>${aspectjVersion}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${license.maven.plugin.version}</version>
+                    <dependencies>
+                        <!-- This dependency provides the license header required for the source files of this project.
+                             An external artifact is used to simplify the configuration of the build as without it,
+                             a cumbersome structure of relative paths per project should have been used. See EE-4843
+                             for more info -->
+                        <dependency>
+                            <groupId>com.mulesoft.license</groupId>
+                            <artifactId>license</artifactId>
+                            <version>${mulesoftLicenseVersion}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <skip>${skipVerifications}</skip>
+                        <header>${licensePath}</header>
+                        <properties>
+                            <year>${licenseYear}</year>
+                        </properties>
+                        <excludes>
+                            <exclude>**/org/mule/repackaged/**</exclude>
+                            <exclude>**/de/javakaffee/kryoserializers/**</exclude>
+                            <exclude>target/**</exclude>
+                            <exclude>**/.gitignore</exclude>
+                            <exclude>**/*.txt</exclude>
+                            <exclude>**/*.groovy</exclude>
+                            <exclude>**/*.sh</exclude>
+                            <exclude>**/*.bat</exclude>
+                            <exclude>**/*.ftl</exclude>
+                            <exclude>**/*.xml</exclude>
+                            <exclude>**/*.properties</exclude>
+                            <exclude>**/*.sample</exclude>
+                            <exclude>**/*.md</exclude>
+                            <exclude>**/*.xsl</exclude>
+                            <exclude>**/*.html</exclude>
+                            <exclude>**/*.css</exclude>
+                            <exclude>**/build-number.txt</exclude>
+
+                            <exclude>**/BndMojo.java</exclude>
+                            <exclude>**/BobberArchetype.java</exclude>
+                            <exclude>**/BobberArchetypeMojo.java</exclude>
+                            <exclude>**/DummySSLServerSocketFactory.java</exclude>
+                            <exclude>**/ConfigurationPatternArchetypeMojo.java</exclude>
+                            <exclude>**/ModuleArchetypeMojo.java</exclude>
+                            <exclude>**/MultipartConfiguration.java</exclude>
+
+                            <exclude>**/ParamReader.java</exclude>
+                            <exclude>**/Part.java</exclude>
+                            <exclude>**/ProjectArchetypeMojo.java</exclude>
+                            <exclude>**/TransportArchetypeMojo.java</exclude>
+                            <exclude>**/XMLStreamReaderToContentHandler.java</exclude>
+                            <exclude>**/__artifactId__IBean.java</exclude>
+                            <exclude>**/__artifactId__IBeanTestCase.java</exclude>
+                            <exclude>**/com/hazelcast/util/ServiceLoader.java</exclude>
+                        </excludes>
+                        <includes>
+                            <include>**/*.java</include>
+                        </includes>
+                        <mapping>
+                            <java>SLASHSTAR_STYLE</java>
+                        </mapping>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${javadocPluginVersion}</version>
+                <configuration>
+                    <reportPlugins>
+                        <reportPlugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <configuration>
+                                <!-- Report plugin configuration is not inherited from CE root pom.
+                                    See http://jira.codehaus.org/browse/MNG-3811
+                                -->
+                                <minmemory>128m</minmemory>
+                                <maxmemory>512m</maxmemory>
+                                <charset>ISO-8859-1</charset>
+                                <encoding>ISO-8859-1</encoding>
+                                <source>1.7</source>
+                                <aggregate>true</aggregate>
+                                <!-- Link to the external online JavaDoc -->
+                                <links>
+                                    <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                                    <link>http://java.sun.com/j2ee/sdk_1.3/techdocs/api/</link>
+                                    <link>http://jakarta.apache.org/commons/beanutils/commons-beanutils-1.9.4/docs/api/</link>
+                                    <link>http://jakarta.apache.org/commons/collections/api-3.2/</link>
+                                    <link>http://jakarta.apache.org/httpcomponents/httpclient-3.x/apidocs/</link>
+                                    <link>http://jakarta.apache.org/commons/io/api-1.2/</link>
+                                    <link>http://jakarta.apache.org/commons/lang/api-2.1/</link>
+                                    <link>http://jakarta.apache.org/commons/pool/apidocs/</link>
+                                    <link>http://logging.apache.org/log4j/1.2/apidocs/</link>
+                                    <link>http://www.slf4j.org/api/</link>
+                                    <link>http://junit.sourceforge.net/javadoc/</link>
+                                </links>
+                                <!-- Exclude patch manegement, support (aka phone-home), EE boot and dummy modules from EE javadoc distribution -->
+                                <excludePackageNames>org.mule.dummy,org.mule.runtime.module.boot,org.mule.support,com.mulesoft.patch</excludePackageNames>
+                            </configuration>
+                        </reportPlugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
+
+    <profiles>
+        <!--
+            This profile is somewhat similar to what's in Maven's toplevel POM. It will be
+            activated when -DperformRelease=true is given on the commandline which is
+            usually used in conjunction with the install or deploy goal.
+            (See http://www.propellors.net/maven/site/guides/introduction/introduction-to-the-pom.html).
+
+            The full distribution (distributions/server/full) wants to package javadocs. This
+            was previously a manual process, i.e. one had to call "mvn site" first and only
+            when running "mvn -DperformRelease=true" afterwards (and not running "mvn clean" in
+            between) we would end up with a valid full distro.
+
+            In order to make the release process less error prone, the javadoc plugin is bound
+            to the install lifecycle phase here but only if Maven was invoked with
+            -DperformRelease=true. The javadoc plugin then generates the toplevel, aggregated
+            javadocs that are included into the full distro, only a single Maven invocation
+            is needed now for building a proper set of distributions.
+            -->
+        <profile>
+            <id>release-profile</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <version>${site.plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${javadocPluginVersion}</version>
+                        <configuration>
+                            <reportPlugins>
+                                <reportPlugin>
+                                    <artifactId>maven-javadoc-plugin</artifactId>
+                                    <!--<inherited>false</inherited>-->
+                                    <configuration>
+                                        <minmemory>128m</minmemory>
+                                        <maxmemory>512m</maxmemory>
+                                        <charset>ISO-8859-1</charset>
+                                        <encoding>ISO-8859-1</encoding>
+                                        <source>1.7</source>
+                                        <!-- aggregate all when built from the top-level directory -->
+                                        <aggregate>true</aggregate>
+                                        <reportSets>
+                                            <reportSet>
+                                                <id>html</id>
+                                                <reports>
+                                                    <report>javadoc</report>
+                                                </reports>
+                                            </reportSet>
+                                        </reportSets>
+                                    </configuration>
+                                </reportPlugin>
+                            </reportPlugins>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
+
+        </profile>
+        <profile>
+            <id>release-dry-run</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-no-snapshots-in-deps</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireReleaseDeps>
+                                            <message>No Snapshots Allowed in Deps!</message>
+                                            <excludes>
+                                                <exclude>com.mulesoft.mule.services:mule-service-http-ee</exclude>
+                                                <exclude>org.mule.services:mule-service-http</exclude>
+
+                                                <exclude>org.mule.modules:mule-module-cors-kernel</exclude>
+
+                                                <exclude>org.mule.tools.maven:mule-classloader-model</exclude>
+
+                                                <exclude>org.mule.weave:*</exclude>
+                                                <exclude>org.mule.services:mule-service-weave</exclude>
+                                                <exclude>com.mulesoft.services:mule-service-weave-ee</exclude>
+                                                <exclude>org.mule.runtime:mule-dwb-api</exclude>
+
+                                                <exclude>org.mule.edi:edi-parser</exclude>
+                                                <exclude>org.mule.edi:ltm-datamodel</exclude>
+                                                <exclude>com.mulesoft.munit:*</exclude>
+
+                                                <exclude>org.mule.tests:test-components</exclude>
+                                            </excludes>
+                                        </requireReleaseDeps>
+                                        <requireReleaseVersion>
+                                            <message>No Snapshots Allowed in Project Version!</message>
+                                        </requireReleaseVersion>
+                                        <requirePluginVersions>
+                                            <message>Best Practice is to always define plugin versions!</message>
+                                            <unCheckedPluginList>
+                                                org.apache.maven.plugins:maven-clean-plugin
+                                            </unCheckedPluginList>
+                                        </requirePluginVersions>
+                                    </rules>
+                                    <skip>${skipNoSnapshotsEnforcerPluginRule}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>nexus-ee</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>mule-ee-customer-releases</id>
+                    <name>Mule Release Repository</name>
+                    <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <downloadUrl>http://www.mulesoft.com/mule-esb-enterprise-trial-download</downloadUrl>
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-ee-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>mulesoft-private</id>
+            <name>Mulesoft internal repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/private/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-private</id>
+            <name>Mulesoft internal repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/private/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>tanukisoft</groupId>
+                <artifactId>wrapper</artifactId>
+                <version>${wrapperVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>weblogic</groupId>
+                <artifactId>wlclient</artifactId>
+                <version>${weblogic9version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-client</artifactId>
+                <version>${activemqVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.fusesource.hawtbuf</groupId>
+                <artifactId>hawtbuf</artifactId>
+                <version>${hawtbufVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.licm</groupId>
+                <artifactId>licm</artifactId>
+                <version>${licmVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.httpcache4j</groupId>
+                <artifactId>httpcache4j-core</artifactId>
+                <version>3.4</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>joda-time</groupId>
+                        <artifactId>joda-time</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>fluent-hc</artifactId>
+                <version>${apacheHttpFluentVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${apacheHttpMimeVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>ca.seinesoftware</groupId>
+                <artifactId>hamcrest-path</artifactId>
+                <version>${hamcrestPathVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache-core</artifactId>
+                <version>${ehCacheVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.services</groupId>
+                <artifactId>mule-service-weave-ee</artifactId>
+                <version>${weaveVersion}</version>
+                <classifier>mule-service</classifier>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.bom</groupId>
+                <artifactId>mule-test-dependencies-bom</artifactId>
+                <version>${muleDependenciesVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 17 14:25:35 JST 2022
+https\://repository.mulesoft.org/releases/.lastUpdated=1660713934373
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.apache.commons\:commons-compress\:pom\:1.18 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: authentication failed for https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/apache/commons/commons-compress/1.18/commons-compress-1.18.pom, status\: 401 Unauthorized
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660713935212
+https\://repository.mulesoft.org/releases/.error=
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660713934554

@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+commons-pool2-2.11.1.pom>=
+commons-pool2-2.11.1.jar>=
+commons-pool2-2.11.1.pom>central=

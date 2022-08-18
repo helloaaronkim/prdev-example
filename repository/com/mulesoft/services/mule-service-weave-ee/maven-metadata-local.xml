@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.mulesoft.services</groupId>
+  <artifactId>mule-service-weave-ee</artifactId>
+  <versioning>
+    <release>2.4.0-20220623</release>
+    <versions>
+      <version>2.4.0-20220623</version>
+    </versions>
+    <lastUpdated>20220815005359</lastUpdated>
+  </versioning>
+</metadata>

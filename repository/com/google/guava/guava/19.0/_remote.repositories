@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+guava-19.0.jar>=
+guava-19.0.pom>=
+guava-19.0.pom>central=

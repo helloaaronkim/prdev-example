@@ -1,0 +1,11 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:51:24 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524683532
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524683401
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact javax.xml.xquery\:xqj-api\:pom\:1.0 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/javax/xml/xquery/xqj-api/1.0/xqj-api-1.0.pom. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/public/.lastUpdated=1660524684631
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524683049
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524683226

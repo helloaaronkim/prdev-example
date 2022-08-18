@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+amf-client_2.12-4.7.8-4.jar>mulesoft-releases=
+amf-client_2.12-4.7.8-4.jar>=
+amf-client_2.12-4.7.8-4.pom>=
+amf-client_2.12-4.7.8-4.pom>mulesoft-releases=

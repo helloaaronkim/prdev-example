@@ -1,0 +1,10 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:20 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524800434
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524799985
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.mulesoft.mule.runtime.modules\:mule-module-batch-ee\:jar\:4.4.0-20220622 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/mulesoft/mule/runtime/modules/mule-module-batch-ee/4.4.0-20220622/mule-module-batch-ee-4.4.0-20220622.jar. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524798130
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524799065

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>f30b2eed-4add-4bf5-8ac7-ae69d4105433</groupId>
+  <artifactId>check-in-papi</artifactId>
+  <version>1.0.0</version>
+  <name>Check-In PAPI</name>
+  <properties>
+    <mainFile>api.json</mainFile>
+    <apiVersion>v1</apiVersion>
+    <tags/>
+    <keywords>_api_catalog</keywords>
+    <status>published</status>
+    <categories>[]</categories>
+    <fields>[]</fields>
+  </properties>
+  <repositories>
+    <repository>
+      <id>anypoint-exchange</id>
+      <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+    </repository>
+  </repositories>
+</project>

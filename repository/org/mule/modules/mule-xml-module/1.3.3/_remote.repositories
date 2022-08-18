@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:03 JST 2022
+mule-xml-module-1.3.3.pom>=
+mule-xml-module-1.3.3-mule-plugin.jar>=
+mule-xml-module-1.3.3.pom>anypoint-exchange-v3-student-deployment=

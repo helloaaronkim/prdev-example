@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mulesoft.mule</groupId>
+    <artifactId>mule-remote-debugger</artifactId>
+    <version>5.0.4</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <mule.version>4.3.0</mule.version>
+        <junit.version>4.12</junit.version>
+        <mockito.version>2.27.0</mockito.version>
+        <commons.io.version>2.4</commons.io.version>
+        <mule.server.plugin.maven.plugin.version>1.2.0</mule.server.plugin.maven.plugin.version>
+        <mule.weave.service.version>2.3.0-ea2</mule.weave.service.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <licensePath>LICENSE_HEADER.txt</licensePath>
+    </properties>
+
+    <modules>
+        <module>commons</module>
+        <module>client</module>
+        <module>server</module>
+        <module>integration-tests</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <arguments>-Prelease,deploy</arguments>
+                        <goals>deploy</goals>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+          <plugin>
+              <groupId>net.revelc.code.formatter</groupId>
+              <artifactId>formatter-maven-plugin</artifactId>
+              <version>2.11.0</version>
+              <configuration>
+                  <configFile>${project.basedir}/../mule_eclipse_formatter.xml</configFile>
+                  <lineEnding>KEEP</lineEnding>
+                  <encoding>UTF-8</encoding>
+              </configuration>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>format</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+        <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <header>${licensePath}</header>
+                <includes>
+                    <include>**/*.java</include>
+                </includes>
+                <mapping>
+                    <java>SLASHSTAR_STYLE</java>
+                </mapping>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>format</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-batch-ee</artifactId>
+                <version>${mule.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-plugin-ee</artifactId>
+                <version>${mule.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>mule-ee-private</id>
+            <name>Nexus private</name>
+            <layout>default</layout>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/private/</url>
+        </repository>
+        <repository>
+            <id>nexus.repository</id>
+            <name>Nexus Repository</name>
+            <layout>default</layout>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>nexus.snapshots.repository</id>
+            <name>Nexus Snapshots Repository</name>
+            <layout>default</layout>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+            <repository>
+            <id>mule-ee-customer-releases</id>
+            <name>Nexus Customer Repository</name>
+            <layout>default</layout>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>mule-ee-customer-releases</id>
+            <name>Nexus Customer Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-ee-snapshots</id>
+            <name>MuleEE Snapshots Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus.repository</id>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mule-ee-releases</id>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mule-ee-snapshots</id>
+            <url>http://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <scm>
+        <connection>scm:git:git://github.com:mulesoft/mule-remote-debugger.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule-remote-debugger.git</developerConnection>
+        <url>http://github.com/mulesoft/mule-remote-debugger</url>
+        <tag>HEAD</tag>
+    </scm>
+
+</project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>exchange-maven-plugin</artifactId>
+        <groupId>org.mule.tools.maven</groupId>
+        <version>0.0.17</version>
+    </parent>
+
+    <artifactId>exchange-mule-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+
+    <name>exchange-mule-maven-plugin</name>
+
+    <properties>
+        <java.version>8</java.version>
+        <mojo.executor.version>2.3.1</mojo.executor.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.twdata.maven</groupId>
+            <artifactId>mojo-executor</artifactId>
+            <version>${mojo.executor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.tools.maven</groupId>
+            <artifactId>exchange-mule-plugin-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>../src/main/java</sourceDirectory>
+        <testSourceDirectory>../src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>../src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

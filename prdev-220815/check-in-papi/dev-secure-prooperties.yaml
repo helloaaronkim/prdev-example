@@ -1,0 +1,3 @@
+tls.keystore:  
+  keyPassword: "mule12345"
+  password: "mule12345"

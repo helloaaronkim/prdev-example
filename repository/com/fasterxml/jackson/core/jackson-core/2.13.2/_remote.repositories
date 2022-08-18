@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+jackson-core-2.13.2.jar>=
+jackson-core-2.13.2.pom>=
+jackson-core-2.13.2.jar>central=
+jackson-core-2.13.2.pom>central=

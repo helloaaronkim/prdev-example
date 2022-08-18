@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+httpclient-4.5.13.pom>=
+httpclient-4.5.13.jar>=
+httpclient-4.5.13.jar>central=
+httpclient-4.5.13.pom>central=

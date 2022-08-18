@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>schema-metadata</artifactId>
+  <packaging>jar</packaging>
+  <name>Flatfile/EDI Schema Metadata Builder</name>
+  <description>Metadata Builder for flat file and EDI schemas</description>
+
+  <parent>
+    <groupId>org.mule.metadata.flatfile</groupId>
+    <artifactId>flatfile-metadata-model</artifactId>
+    <version>1.2.6</version>
+    <relativePath>..</relativePath>
+  </parent>
+
+  <properties>
+    <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../systests/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+  </properties>
+
+</project>

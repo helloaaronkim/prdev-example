@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 17 12:39:05 JST 2022
+solutions-bom-1.0.0-SNAPSHOT-preConditions-1660707523895.json>anypoint-exchange-v3-student-deployment=
+solutions-bom-1.0.0-SNAPSHOT.pom>=
+solutions-bom-1.0.0-SNAPSHOT-status-1660707536611.json>anypoint-exchange-v3-student-deployment=
+solutions-bom-1.0.0-SNAPSHOT-status-1660707543881.json>anypoint-exchange-v3-student-deployment=

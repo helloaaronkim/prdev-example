@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:54 JST 2022
+maven-resolver-provider-3.6.3.pom>=
+maven-resolver-provider-3.6.3.jar>=
+maven-resolver-provider-3.6.3.pom>central=
+maven-resolver-provider-3.6.3.jar>central=

@@ -1,0 +1,15 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:52:28 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repository-master.mulesoft.org/nexus/content/repositories/releases/.lastUpdated=1660524745427
+https\://repository-master.mulesoft.org/nexus/content/repositories/snapshots/.error=
+https\://repository-master.mulesoft.org/nexus/content/repositories/snapshots/.lastUpdated=1660524746344
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524711022
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524734092
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524744475
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524736617
+https\://repository-master.mulesoft.org/nexus/content/repositories/releases/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact com.github.everit-org.json-schema\:org.everit.json.schema\:jar\:1.12.2 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/com/github/everit-org/json-schema/org.everit.json.schema/1.12.2/org.everit.json.schema-1.12.2.jar. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://jitpack.io/.lastUpdated=1660524748654

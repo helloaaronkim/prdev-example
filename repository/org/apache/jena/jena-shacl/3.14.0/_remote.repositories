@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:03 JST 2022
+jena-shacl-3.14.0.jar>=
+jena-shacl-3.14.0.pom>=
+jena-shacl-3.14.0.jar>central=
+jena-shacl-3.14.0.pom>central=

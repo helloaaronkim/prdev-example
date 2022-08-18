@@ -1,0 +1,12 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:20 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524800434
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524799985
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.mule.modules\:mule-module-file-extension-common\:jar\:mule-plugin\:1.4.0 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/mule/modules/mule-module-file-extension-common/1.4.0/mule-module-file-extension-common-1.4.0-mule-plugin.jar. Error code 401, Unauthorized
+https\://repository.mulesoft.org/nexus/content/repositories/public/.error=
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/public/.lastUpdated=1660524800712
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524798131
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524799065

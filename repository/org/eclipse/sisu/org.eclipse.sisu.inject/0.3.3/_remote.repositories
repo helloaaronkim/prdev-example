@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:12 JST 2022
+org.eclipse.sisu.inject-0.3.3.jar>=
+org.eclipse.sisu.inject-0.3.3.pom>=
+org.eclipse.sisu.inject-0.3.3.jar>central=
+org.eclipse.sisu.inject-0.3.3.pom>central=

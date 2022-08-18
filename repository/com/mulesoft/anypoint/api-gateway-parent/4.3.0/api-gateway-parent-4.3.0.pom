@@ -1,0 +1,345 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mulesoft.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.3.0</version>
+    </parent>
+
+    <groupId>com.mulesoft.anypoint</groupId>
+    <artifactId>api-gateway-parent</artifactId>
+    <version>4.3.0</version>
+
+    <packaging>pom</packaging>
+
+    <!-- Organization -->
+    <organization>
+        <name>MuleSoft, Inc.</name>
+        <url>http://www.mulesoft.com</url>
+    </organization>
+
+    <!-- Project -->
+    <name>API Gateway Parent</name>
+    <url>http://www.mulesoft.com</url>
+    <inceptionYear>2014</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MSA</name>
+            <url>http://www.mulesoft.com/</url>
+        </license>
+    </licenses>
+
+    <!-- Build -->
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/api-gateway.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/api-gateway.git</developerConnection>
+        <url>http://github.com/mulesoft/api-gateway</url>
+    </scm>
+
+    <properties>
+        <currentYear>2020</currentYear>
+        <muleApiVersion>1.3.0</muleApiVersion>
+        <muleExtensionsApiVersion>1.3.0</muleExtensionsApiVersion>
+        <apiGatewayVersion>4.3.0</apiGatewayVersion>
+        <apiGatewayApiVersion>1.3.0</apiGatewayApiVersion>
+        <apiGatewayTitaVersion>0.20.0</apiGatewayTitaVersion>
+        <contractsServiceVersion>1.1.0</contractsServiceVersion>
+        <contractsServiceApiVersion>1.2.0</contractsServiceApiVersion>
+        <apiGatewayEventsCollectors>1.1.0</apiGatewayEventsCollectors>
+        <apiGatewayEventsCollectorsApi>1.0.0</apiGatewayEventsCollectorsApi>
+        <muleVersion>4.3.0</muleVersion>
+        <muleHttpConnectorVersion>1.5.15</muleHttpConnectorVersion>
+        <muleSocketsConnectorVersion>1.1.1</muleSocketsConnectorVersion>
+        <muleSoapServiceVersion>1.2.0</muleSoapServiceVersion>
+        <mule.maven.plugin.version>3.2.0</mule.maven.plugin.version>
+        <httpclientVersion>4.5.3</httpclientVersion>
+        <httpCoreVersion>4.4.6</httpCoreVersion>
+        <apacheHttpFluentVersion>${httpclientVersion}</apacheHttpFluentVersion>
+        <jackson2Version>2.10.3</jackson2Version>
+        <mapdbVersion>1.0.6</mapdbVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.surefire.version>2.19.1</maven.surefire.version>
+        <mockitoVersion>1.10.19</mockitoVersion>
+        <powermockVersion>1.6.5</powermockVersion>
+        <argLine /> <!-- empty argLine, needed by surefire for when @{argLine} is not set -->
+    </properties>
+
+    <build>
+        <plugins>
+            <!--
+                The bulk of the config of the jar plugin is inherited from the parent
+                POM. We need to override the license, however ...
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Description>API Gateway Platform</Description>
+                            <License>MSA v1.0 http://www.mulesoft.com/</License>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>3.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.mulesoft.license</groupId>
+                        <artifactId>license</artifactId>
+                        <version>1.0.3</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <header>LICENSE_HEADER.txt</header>
+                    <properties>
+                        <year>${currentYear}</year>
+                    </properties>
+                    <excludes>
+                        <exclude>target/**</exclude>
+                        <exclude>**/.gitignore</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/*.groovy</exclude>
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.bat</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.md</exclude>
+                        <exclude>**/*.xsl</exclude>
+                        <exclude>**/*.html</exclude>
+                        <exclude>**/build-number.txt</exclude>
+                    </excludes>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                    <mapping>
+                        <java>SLASHSTAR_STYLE</java>
+                    </mapping>
+                    <strictCheck>true</strictCheck>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <dependencies>
+                    <!--Setting this surefire dependency forces all tests to run ONLY with JUnit.-->
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>${maven.surefire.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <argLine>@{argLine} -Dfile.encoding=UTF-8 -XX:MaxPermSize=128m</argLine>
+                    <reuseForks>true</reuseForks>
+                </configuration>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>nexus-ee</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>mule-ee-customer-releases</id>
+                    <name>Mule Release Repository</name>
+                    <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <downloadUrl>http://www.mulesoft.com/mule-esb-enterprise-trial-download</downloadUrl>
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-ee-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mule-ci-releases</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mule-ci-snapshots</id>
+            <name>MuleEE Snapshots Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <!--
+            This repository definition is redundant as it's already present in the
+            parent pom.
+
+            However, when building the Enterprise modules with an empty local repository
+            for the first time, the build *has* to know where to get its parent from and
+            there's no way around this repo definition.
+        -->
+        <repository>
+            <id>mule-ee-releases</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mule-ee-snapshots</id>
+            <name>Internal Release Repo</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>libs-releases</id>
+            <name>External libs</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/libs-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>http://repository.mulesoft.org/releases/</url>
+        </repository>
+        <repository>
+            <id>mulesoft-snapshots</id>
+            <name>MuleSoft Snapshots Repository</name>
+            <url>https://repository.mulesoft.org/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junitVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrestVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclientVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpCoreVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockitoVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commonsIoVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commonsLangVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson2Version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson2Version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${jodaTimeVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

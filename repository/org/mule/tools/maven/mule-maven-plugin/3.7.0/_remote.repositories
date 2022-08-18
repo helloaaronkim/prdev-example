@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:45:13 JST 2022
+mule-maven-plugin-3.7.0.jar>mulesoft-releases=
+mule-maven-plugin-3.7.0.pom>mulesoft-releases=

@@ -1,1 +1,1 @@
-# prdev-example
+# Production Ready Development Practice Artifact (Sample)

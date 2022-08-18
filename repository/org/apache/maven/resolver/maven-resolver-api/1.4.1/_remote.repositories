@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:54 JST 2022
+maven-resolver-api-1.4.1.pom>=
+maven-resolver-api-1.4.1.pom>central=
+maven-resolver-api-1.4.1.jar>=
+maven-resolver-api-1.4.1.jar>central=

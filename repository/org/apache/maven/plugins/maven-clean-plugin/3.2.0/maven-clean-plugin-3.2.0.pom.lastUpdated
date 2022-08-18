@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Aug 16 12:33:38 JST 2022
+https\://repository.mulesoft.org/releases/.lastUpdated=1660620818063
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.apache.maven.plugins\:maven-clean-plugin\:pom\:3.2.0 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: authentication failed for https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom, status\: 401 Unauthorized
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660620818912
+https\://repository.mulesoft.org/releases/.error=
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660620818246

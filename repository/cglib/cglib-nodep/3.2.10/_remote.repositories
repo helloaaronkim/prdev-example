@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:10 JST 2022
+cglib-nodep-3.2.10.pom>=
+cglib-nodep-3.2.10.jar>central=
+cglib-nodep-3.2.10.jar>=
+cglib-nodep-3.2.10.pom>central=

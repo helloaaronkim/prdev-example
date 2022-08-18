@@ -1,0 +1,12 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:09 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524788129
+@default-anypoint-exchange-https\://maven.anypoint.mulesoft.com/api/v2/maven/.lastUpdated=1660524789119
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524787697
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact a63e6d25-8aaf-4512-b36d-d91b90a55c4a\:paymentcreate\:zip\:raml-fragment\:1.0.1 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/a63e6d25-8aaf-4512-b36d-d91b90a55c4a/paymentcreate/1.0.1/paymentcreate-1.0.1-raml-fragment.zip. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=Could not transfer artifact a63e6d25-8aaf-4512-b36d-d91b90a55c4a\:paymentcreate\:zip\:raml-fragment\:1.0.1 from/to anypoint-exchange-v3-student-deployment (https\://maven.anypoint.mulesoft.com/api/v3/maven)\: Access denied to https\://maven.anypoint.mulesoft.com/api/v3/maven/a63e6d25-8aaf-4512-b36d-d91b90a55c4a/paymentcreate/1.0.1/paymentcreate-1.0.1-raml-fragment.zip. Error code 401, Unauthorized
+@default-anypoint-exchange-v3-student-deployment-https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524785840
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524786775
+https\://maven.anypoint.mulesoft.com/api/v2/maven/.error=Could not transfer artifact a63e6d25-8aaf-4512-b36d-d91b90a55c4a\:paymentcreate\:zip\:raml-fragment\:1.0.1 from/to anypoint-exchange (https\://maven.anypoint.mulesoft.com/api/v2/maven)\: Access denied to https\://maven.anypoint.mulesoft.com/api/v2/maven/a63e6d25-8aaf-4512-b36d-d91b90a55c4a/paymentcreate/1.0.1/paymentcreate-1.0.1-raml-fragment.zip. Error code 401, Unauthorized

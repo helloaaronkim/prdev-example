@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.4.0-20220622</version>
+        <relativePath></relativePath>
+    </parent>
+    <groupId>org.mule.distributions</groupId>
+    <artifactId>mule-distributions</artifactId>
+    <version>4.4.0-20220622</version>
+    <packaging>pom</packaging>
+    <name>Mule Distributions</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+	<properties>
+        <muleEmbeddedApiVersion>1.4.0-20220622</muleEmbeddedApiVersion>
+        <muleDependenciesVersion>1.0.18</muleDependenciesVersion>
+        <muleBomVersion>${project.version}</muleBomVersion>
+
+        <formatterConfigPath>formatter.xml</formatterConfigPath>
+	</properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mule</groupId>
+                <artifactId>mule-runtime-bom</artifactId>
+                <version>${muleBomVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.bom</groupId>
+                <artifactId>mule-test-dependencies-bom</artifactId>
+                <version>${muleDependenciesVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>services-all</module>
+        <module>bom</module>
+        <module>embedded</module>
+        <module>standalone</module>
+        <module>standalone-structure</module>
+        <module>tests</module>
+    </modules>
+</project>

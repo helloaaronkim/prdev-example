@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+mule-salesforce-connector-10.15.0-mule-plugin.jar>=
+mule-salesforce-connector-10.15.0.pom>=

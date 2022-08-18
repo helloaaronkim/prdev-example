@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mule.services</groupId>
+  <artifactId>mule-service-weave</artifactId>
+  <version>2.4.0-20220623</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>runtime</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>wlang</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>java-module</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>core-modules</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>yaml-module</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>ndjson-module</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>avro-module</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.weave</groupId>
+      <artifactId>dwb-module</artifactId>
+      <version>2.4.0-20220623</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>dwb-api</artifactId>
+          <groupId>*</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+mule-objectstore-connector-1.2.1-mule-plugin.jar>anypoint-exchange-v3-student-deployment=
+mule-objectstore-connector-1.2.1-mule-plugin.jar>=
+mule-objectstore-connector-1.2.1.pom>=
+mule-objectstore-connector-1.2.1.pom>anypoint-exchange-v3-student-deployment=

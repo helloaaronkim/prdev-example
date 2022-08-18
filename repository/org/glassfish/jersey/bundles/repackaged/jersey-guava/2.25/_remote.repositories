@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+jersey-guava-2.25.jar>=
+jersey-guava-2.25.pom>=
+jersey-guava-2.25.jar>central=
+jersey-guava-2.25.pom>central=

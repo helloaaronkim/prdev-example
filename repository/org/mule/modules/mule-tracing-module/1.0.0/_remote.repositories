@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:54:04 JST 2022
+mule-tracing-module-1.0.0.pom>=
+mule-tracing-module-1.0.0-mule-plugin.jar>=
+mule-tracing-module-1.0.0.pom>anypoint-exchange-v3-student-deployment=
+mule-tracing-module-1.0.0-mule-plugin.jar>anypoint-exchange-v3-student-deployment=

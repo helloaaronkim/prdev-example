@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 19:20:11 JST 2022
+org.eclipse.sisu.plexus-0.3.3.jar>=
+org.eclipse.sisu.plexus-0.3.3.pom>central=
+org.eclipse.sisu.plexus-0.3.3.jar>central=
+org.eclipse.sisu.plexus-0.3.3.pom>=

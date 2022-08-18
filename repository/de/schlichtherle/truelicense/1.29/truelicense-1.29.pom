@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.schlichtherle</groupId>
+  <artifactId>truelicense</artifactId>
+  <version>1.29</version>
+  <description>Provides license key validation support.</description>
+  <url>https://truelicense.dev.java.net/</url>
+  <dependencies>
+    <dependency>
+      <groupId>de.schlichtherle</groupId>
+      <artifactId>truexml</artifactId>
+      <version>1.29</version>
+    </dependency>
+  </dependencies>
+</project>

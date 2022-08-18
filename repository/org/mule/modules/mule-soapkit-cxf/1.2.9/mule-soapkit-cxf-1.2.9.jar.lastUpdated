@@ -1,0 +1,16 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Aug 15 09:53:16 JST 2022
+https\://repository.mulesoft.org/releases/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/public/.error=
+@default-mulesoft-private-https\://repository.mulesoft.org/nexus/content/repositories/private/.lastUpdated=1660524796940
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.lastUpdated=1660524794164
+https\://repository.mulesoft.org/releases/.lastUpdated=1660524794347
+https\://repo.maven.apache.org/maven2/.lastUpdated=1660524794672
+@default-releases-ee-https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.lastUpdated=1660524794533
+https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/.error=Could not transfer artifact org.mule.modules\:mule-soapkit-cxf\:jar\:1.2.9 from/to releases-ee (https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/releases-ee/org/mule/modules/mule-soapkit-cxf/1.2.9/mule-soapkit-cxf-1.2.9.jar. Error code 401, Unauthorized
+https\://maven.anypoint.mulesoft.com/api/v3/maven/.error=
+https\://repo.maven.apache.org/maven2/.error=
+https\://repository.mulesoft.org/nexus/content/repositories/public/.lastUpdated=1660524795651
+https\://repository.mulesoft.org/nexus/content/repositories/private/.error=Could not transfer artifact org.mule.modules\:mule-soapkit-cxf\:jar\:1.2.9 from/to mulesoft-private (https\://repository.mulesoft.org/nexus/content/repositories/private/)\: Access denied to https\://repository.mulesoft.org/nexus/content/repositories/private/org/mule/modules/mule-soapkit-cxf/1.2.9/mule-soapkit-cxf-1.2.9.jar. Error code 401, Unauthorized
+http\://repo.spring.io/snapshot/.error=
+http\://repo.spring.io/snapshot/.lastUpdated=1660524796019

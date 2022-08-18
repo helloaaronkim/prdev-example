@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <inceptionYear>2014</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MSA</name>
+            <url>http://www.mulesoft.com/</url>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>MuleSoft, Inc.</name>
+        <url>http://www.mulesoft.com</url>
+    </organization>
+
+    <ciManagement>
+        <system>jenkins</system>
+        <url>https://muleion.ci.cloudbees.com/view/mule-agent/job/mule-agent-platform/</url>
+    </ciManagement>
+
+    <issueManagement>
+        <system>jira</system>
+        <url>http://www.mulesoft.org/jira/browse/CHHYBRID</url>
+    </issueManagement>
+
+    <name>Mule Agent Plugin</name>
+    <groupId>com.mulesoft.agent</groupId>
+    <artifactId>mule-agent-platform</artifactId>
+    <version>2.4.30</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mule-agent-common-api</module>
+        <module>mule-agent-common</module>
+        <module>mule-agent-modules</module>
+        <module>mule-agent</module>
+    </modules>
+
+
+    <properties>
+        <io.netty.version>4.1.68.Final</io.netty.version>
+        <async.http.client.version>2.12.2</async.http.client.version>
+        <awaitility.version>3.0.0</awaitility.version>
+        <aws.sdk.version>1.8.11</aws.sdk.version>
+        <bc.version>1.70</bc.version>
+        <bigqueue.version>0.7.0</bigqueue.version>
+        <commons.lang.version>2.4</commons.lang.version>
+        <commons.lang3.version>3.4</commons.lang3.version>
+        <commons-io.version>2.8.0</commons-io.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <httpcomponents.fluent-hc.version>4.5.3</httpcomponents.fluent-hc.version>
+        <httpcomponents.httpclient.version>4.5.13</httpcomponents.httpclient.version>
+        <httpcomponents.core.version>4.4.5</httpcomponents.core.version>
+        <fst.version>2.47</fst.version>
+        <genson.version>0.99</genson.version>
+        <guava.version>30.1-jre</guava.version>
+        <guice.version>5.0.1</guice.version>
+        <greenmail.version>1.5.0</greenmail.version>
+        <grizzly.version>2.3.34</grizzly.version>
+        <gson.version>2.8.9</gson.version>
+        <http.builder.version>0.7.1</http.builder.version>
+        <jasypt.version>1.9.2</jasypt.version>
+        <jackson.version>2.12.7</jackson.version>
+        <javax.ws.version>2.0</javax.ws.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <javax.validation-api.version>1.1.0.Final</javax.validation-api.version>
+        <javax.validation.version>1.0.0.GA</javax.validation.version>
+        <jersey1-version>1.6</jersey1-version>
+        <jersey-version>2.16</jersey-version>
+        <jetty-version>9.4.43.v20210629</jetty-version>
+        <joda.time.version>2.9.1</joda.time.version>
+        <jsendnsca.version>2.1.1</jsendnsca.version>
+        <junit.version>4.12</junit.version>
+        <powermock.version>1.6.1</powermock.version>
+        <kryo.version>3.0.0</kryo.version>
+        <kryo-serializers.version>0.27</kryo-serializers.version>
+        <licm.version>2.1.5</licm.version>
+        <log4j.version>2.17.1</log4j.version>
+        <mapdb.version>1.0.9</mapdb.version>
+        <mockito.version>1.9.5</mockito.version>
+        <maven.artifact.version>3.8.5</maven.artifact.version>
+        <snakeyaml.version>1.26</snakeyaml.version>
+        <security.api.version>1.5.2</security.api.version>
+        <splunk.version>1.6.4.0</splunk.version>
+        <spring.version>5.3.20</spring.version>
+        <spock.version>1.1-groovy-2.4</spock.version>
+        <org.eclipse.sisu.inject.version>0.3.3</org.eclipse.sisu.inject.version>
+        <plugin.dependency.version>2.4</plugin.dependency.version>
+        <tape.version>1.2.2</tape.version>
+        <uuid.version>3.1.3</uuid.version>
+        <wiremock.version>2.1.12</wiremock.version>
+        <hamcrest-core.version>1.3</hamcrest-core.version>
+        <servo-core.version>0.12.22</servo-core.version>
+        <commons-cli.version>1.4</commons-cli.version>
+        <xml-apis.version>1.4.01</xml-apis.version>
+        <commons.codec.version>1.13</commons.codec.version>
+        <jacoco.maven.plugin.version>0.8.2</jacoco.maven.plugin.version>
+
+        <!-- Mulesoft dependencies -->
+        <mule.version>4.2.3-SNAPSHOT</mule.version>
+        <mule.service.weave.version>2.1.3</mule.service.weave.version>
+        <mule.api.version>1.4.0-20210125</mule.api.version>
+        <mule.extensions.api.version>1.2.0</mule.extensions.api.version>
+        <mule.tooling.version>1.1.1</mule.tooling.version>
+        <mule.encryption.version>1.0.0</mule.encryption.version>
+        <gw.api.version>1.2.0</gw.api.version>
+
+        <!-- RDBMS -->
+        <mysql.version>5.1.37</mysql.version>
+        <oracle.version>11.2.0.3</oracle.version>
+        <mssql.version>4.0</mssql.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <header>LICENSE_HEADER.txt</header>
+                    <excludes>
+                        <exclude>target/**</exclude>
+                        <exclude>**/.mule/*</exclude>
+                        <exclude>**/.idea/*</exclude>
+                        <exclude>**/.gitignore</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/*.ftl</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.sample</exclude>
+                        <exclude>**/*.md</exclude>
+                        <exclude>**/build-number.txt</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.maven.plugin.version}</version>
+                <configuration>
+                    <append>true</append>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>jacoco-ut-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-ut-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>2.17</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>6.19</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <configLocation>checkstyle.xml</configLocation>
+                        <encoding>UTF-8</encoding>
+                        <consoleOutput>true</consoleOutput>
+                        <failsOnError>true</failsOnError>
+                        <linkXRef>false</linkXRef>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <check>
+                            <branchRate>90</branchRate>
+                            <lineRate>90</lineRate>
+                            <haltOnFailure>true</haltOnFailure>
+                            <totalBranchRate>90</totalBranchRate>
+                            <totalLineRate>90</totalLineRate>
+                            <packageLineRate>90</packageLineRate>
+                            <packageBranchRate>90</packageBranchRate>
+                        </check>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.8</version>
+                    <executions>
+                        <execution>
+                            <id>analyze</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>analyze</goal>
+                                <goal>analyze-duplicate</goal>
+                            </goals>
+                            <configuration>
+                                <ignoreNonCompile>true</ignoreNonCompile>
+                                <failOnWarning>false</failOnWarning>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20</version>
+                    <configuration>
+                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        <argLine>@{argLine} -Xms1024m -Xmx4048m</argLine>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Mule Agent Dependencies -->
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>agent-setup</artifactId>
+                <groupId>com.mulesoft.agent</groupId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-console-websocket</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-rest-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-plugin-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-plugin-websocket</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-plugin-file</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-websocket-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-websocket-jersey2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>mule-agent-websocket-endpoint</artifactId>
+                <groupId>com.mulesoft.agent</groupId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-rest-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-web-interface</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <version>${project.version}</version>
+                <artifactId>mule-agent-internal-handlers</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-configuration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-configurable-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-application-properties-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-esb-support</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-administration-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-application-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-domain-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-logging-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-monitoring-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-tracking-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-clustering-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-gw-analytics-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-properties-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-scheduling-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-installer-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-action-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-test-framework</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-extensions-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-metadata-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-value-provider-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-dataweave-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-tooling-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-messagehistory-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-messagehistory-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-runtime-configuration-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-health-check-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-artifact-validation-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Agent Modules -->
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-modules-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-log-gw-http-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-splunk-gw-http-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-log-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-analytics-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-splunk-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-nagios-publisher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-zabbix-publisher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-graphite-publisher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-cloudwatch-publisher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-db-gw-http-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-db-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-http-event-tracker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-ingest-publisher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.agent</groupId>
+                <artifactId>mule-agent-last-run-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Mule Dependencies -->
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime</groupId>
+                <artifactId>mule-core-ee</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-boot-ee</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-cluster-ee</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.sonatype.sisu</groupId>
+                        <artifactId>sisu-guice</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-plugin-ee</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.glassfish.jersey.core</groupId>
+                        <artifactId>jersey-common</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.mule.runtime.modules</groupId>
+                <artifactId>mule-module-tracking-ee</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.services</groupId>
+                <artifactId>mule-service-weave</artifactId>
+                <version>${mule.service.weave.version}</version>
+                <classifier>mule-service</classifier>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-api</artifactId>
+                <version>${mule.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-core</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-extensions-api</artifactId>
+                <version>${mule.extensions.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-extensions-api-persistence</artifactId>
+                <version>${mule.extensions.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-module-artifact</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-module-launcher</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-module-management</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.tooling</groupId>
+                <artifactId>mule-runtime-event-model</artifactId>
+                <version>${mule.tooling.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mule.runtime</groupId>
+                <artifactId>mule-module-tooling-support</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mulesoft.licm</groupId>
+                <artifactId>licm</artifactId>
+                <version>${licm.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>de.schlichtherle</groupId>
+                        <artifactId>truelicense</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>de.schlichtherle</groupId>
+                        <artifactId>truexml</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- GW Dependencies -->
+            <dependency>
+                <groupId>com.mulesoft.anypoint</groupId>
+                <artifactId>api-gateway-api</artifactId>
+                <version>${gw.api.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpg-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-ext-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpkix-jdk15on</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- AWS SDK -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk</artifactId>
+                <version>${aws.sdk.version}</version>
+            </dependency>
+
+            <!-- netty versions, fix vulnerability in async-http-client -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-http</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-socks</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler-proxy</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-buffer</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-transport-native-epoll</artifactId>
+                <classifier>linux-x86_64</classifier>
+                <version>${io.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-transport-native-unix-common</artifactId>
+                <version>${io.netty.version}</version>
+            </dependency>
+
+            <!-- AsyncHTTPClient Dependency -->
+            <dependency>
+                <groupId>org.asynchttpclient</groupId>
+                <artifactId>async-http-client</artifactId>
+                <version>${async.http.client.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>netty-transport-native-kqueue</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- WebSocket Dependencies -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-client</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.websocket</groupId>
+                <artifactId>websocket-api</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.websocket</groupId>
+                <artifactId>websocket-server</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.websocket</groupId>
+                <artifactId>websocket-client</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-webapp</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <version>${jetty-version}</version>
+            </dependency>
+
+            <!-- Guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- Grizzly -->
+            <dependency>
+                <groupId>org.glassfish.grizzly</groupId>
+                <artifactId>grizzly-framework</artifactId>
+                <version>${grizzly.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.grizzly</groupId>
+                <artifactId>grizzly-websockets</artifactId>
+                <version>${grizzly.version}</version>
+            </dependency>
+
+            <!-- Encryption Dependencies -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15to18</artifactId>
+                <version>${bc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15to18</artifactId>
+                <version>${bc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-ext-jdk15to18</artifactId>
+                <version>${bc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+            <!-- Serialization Dependencies -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.objenesis</groupId>
+                        <artifactId>objenesis</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>de.javakaffee</groupId>
+                <artifactId>kryo-serializers</artifactId>
+                <version>${kryo-serializers.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.esotericsoftware.kryo</groupId>
+                        <artifactId>kryo</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- Common Utils -->
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcomponents.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpcomponents.httpclient.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.leansoft</groupId>
+                <artifactId>bigqueue</artifactId>
+                <version>${bigqueue.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.ruedigermoeller</groupId>
+                <artifactId>fst</artifactId>
+                <version>${fst.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.servo</groupId>
+                <artifactId>servo-core</artifactId>
+                <version>${servo-core.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.code.findbugs</groupId>
+                        <artifactId>annotations</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-artifact</artifactId>
+                <version>${maven.artifact.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-cli</groupId>
+                <artifactId>commons-cli</artifactId>
+                <version>${commons-cli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup</groupId>
+                <artifactId>tape</artifactId>
+                <version>${tape.version}</version>
+            </dependency>
+
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- Jersey -->
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-multipart</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.containers</groupId>
+                <artifactId>jersey-container-servlet</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-common</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+
+            <!-- Jersey + Jackson -->
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-json-jackson</artifactId>
+                <version>${jersey-version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- Map DBrm  -->
+            <dependency>
+                <groupId>org.mapdb</groupId>
+                <artifactId>mapdb</artifactId>
+                <version>${mapdb.version}</version>
+            </dependency>
+
+            <!-- Splunk -->
+            <dependency>
+                <groupId>com.splunk</groupId>
+                <artifactId>splunk</artifactId>
+                <version>${splunk.version}</version>
+            </dependency>
+
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- UUID Generator -->
+            <dependency>
+                <groupId>com.fasterxml.uuid</groupId>
+                <artifactId>java-uuid-generator</artifactId>
+                <version>${uuid.version}</version>
+            </dependency>
+
+            <!-- JAVA API -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax.ws.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+            </dependency>
+
+
+            <!-- Injection Dependencies -->
+            <dependency>
+                <groupId>org.eclipse.sisu</groupId>
+                <artifactId>org.eclipse.sisu.inject</artifactId>
+                <version>${org.eclipse.sisu.inject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${guice.version}</version>
+            </dependency>
+
+            <!-- Publisher dependencies -->
+            <dependency>
+                <groupId>com.github.jsendnsca</groupId>
+                <artifactId>jsendnsca</artifactId>
+                <version>${jsendnsca.version}</version>
+            </dependency>
+
+            <!-- Logging dependencies -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>fluent-hc</artifactId>
+                <version>${httpcomponents.fluent-hc.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>${spock.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.owlike</groupId>
+                <artifactId>genson</artifactId>
+                <version>${genson.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+                <artifactId>http-builder</artifactId>
+                <version>${http.builder.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy</artifactId>
+                    </exclusion>
+                </exclusions>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.icegreen</groupId>
+                <artifactId>greenmail</artifactId>
+                <version>${greenmail.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>${xml-apis.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>${awaitility.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- RDBMS Tests -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${mssql.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-standalone</artifactId>
+                <version>${wiremock.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>mulesoft-ci-releases</id>
+            <name>MuleSoft Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>mulesoft-ci-snapshots</id>
+            <name>MuleSoft Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>releases ee</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee</url>
+        </repository>
+        <repository>
+            <id>mulesoft-private</id>
+            <name>private</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/private</url>
+        </repository>
+        <repository>
+            <id>mulesoft-snapshots</id>
+            <name>snapshots</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>mulesoft-ci-releases</id>
+            <name>ci releases</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases</url>
+        </repository>
+        <repository>
+            <id>mulesoft-ci-snapshots</id>
+            <name>ci snapshots</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots</url>
+        </repository>
+        <repository>
+            <id>bulldog2011-repo</id>
+            <url>https://raw.github.com/bulldog2011/bulldog-repo/master/repo/releases/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mule-releases</id>
+            <name>ce releases</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mule-snapshots</id>
+            <name>ce snapshots</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/snapshots/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mulesoft-central</id>
+            <name>maven central</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/central/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mulesoft-atlassian</id>
+            <name>atlassian</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/atlassian/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold />
+                    <xmlOutput>true</xmlOutput>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>1.2.0</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <profile>
+            <id>full</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>mule-agent-tests</module>
+            </modules>
+            <properties>
+                <slow.tests>true</slow.tests>
+            </properties>
+        </profile>
+        <profile>
+            <id>fast</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <scm>
+        <connection>scm:git:https://github.com/mulesoft/mule-agent-plugin</connection>
+        <developerConnection>scm:git:https://github.com/mulesoft/mule-agent-plugin</developerConnection>
+        <url>http://github.com/mulesoft/mule-agent-plugin</url>
+        <tag>mule-agent-plugin-2.4.30</tag>
+    </scm>
+</project>
